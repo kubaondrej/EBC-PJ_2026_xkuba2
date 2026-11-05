@@ -1,14 +1,22 @@
 package cz.mendelu.projektjava_xkuba2.model;
 
 public class Medication {
+    String id;
     String name;
     String activeIngredient;
     float doseMgs;
 
-    public Medication(String name, String activeIngredient, float doseMgs) {
+    public Medication(String id,String name, String activeIngredient, float doseMgs) {
+        this.id=id;
         this.name = name;
         this.activeIngredient = activeIngredient;
         this.doseMgs = doseMgs;
+    }
+    public Medication() {
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -21,6 +29,10 @@ public class Medication {
 
     public void setDoseMgs(float doseMgs) {
         this.doseMgs = doseMgs;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
