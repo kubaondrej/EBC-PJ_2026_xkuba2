@@ -1,72 +1,138 @@
 package cz.mendelu.projektjava_xkuba2;
 
-import cz.mendelu.projektjava_xkuba2.model.Medication;
-import cz.mendelu.projektjava_xkuba2.model.Pharmacy;
-import cz.mendelu.projektjava_xkuba2.storage.JsonStorage;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import cz.mendelu.projektjava_xkuba2.storage.*;
+import cz.mendelu.projektjava_xkuba2.model.*;
 
 import java.io.IOException;
+
 import java.nio.file.Path;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class HelloController {
+
+//LEKY
+    //tabulka leku
     @FXML
-    private Label welcomeText;
+    private TableView<Medication> tableMeds;
+    @FXML
+    private TableColumn<Medication, String> colId;
+    @FXML
+    private TableColumn<Medication, String> colName;
+    @FXML
+    private TableColumn<Medication, String> colActiveIngredient;
+    @FXML
+    private TableColumn<Medication, String> colDosage;
+    //tlacitka pro scenu s lekama
+    @FXML
+    private TextField medTxtId;
+    @FXML
+    private TextField medTxtName;
+    @FXML
+    private TextField medTxtActiveIngredient;
+    @FXML
+    private TextField medTxtDosage;
+//LEKARNY
 
     private final JsonStorage storage = new JsonStorage();
+    //CESTY K JSONUM
     private final Path medicationsFile = Path.of("src", "main", "JSONs", "medications.json");
-    private final Path pharmaciesFile = Path.of("data", "pharmacies.json");
-
-    private List<Medication> medications = new ArrayList<>();
+    private final Path pharmaciesFile = Path.of("src", "main", "JSONs", "pharmacies.json");
+    //DATA LEKAREN A POBOCEK
     private List<Pharmacy> pharmacies = new ArrayList<>();
+    private List<Medication> medications = new ArrayList<>();
 
     @FXML
-    void CreatePharmacy() {
-        pharmacies.add(new Pharmacy("Ondrova lékárna", "Oderská", "7", "625 00", "Brno"));
+    public void initialize() {
+        loadData();
+        loadDataIntoTable(tableMeds);
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colActiveIngredient.setCellValueFactory(new PropertyValueFactory<>("activeIngredient"));
+        colDosage.setCellValueFactory(new PropertyValueFactory<>("doseMgs"));
     }
 
     @FXML
-    void AddMedication() {
+    private void switchToMedDatabase(ActionEvent event) {
+        switchScene(event, "medications_scene.fxml");
     }
 
     @FXML
-    void SaveData() {
-        try {
-            storage.saveList(medications, medicationsFile);
-
-            //storage.saveList(pharmacies, pharmaciesFile);
-        } catch (IOException e) {
-            System.err.println("Chyba při ukládání: " + e.getMessage());
-        }
-        System.out.println("ULOZENO" + ' ' + medications.size() + ' ' + "polozek");
-
+    private void SwitchToPharmDatabase(ActionEvent event) {
+        switchScene(event, "pharmacies_scene.fxml");
     }
 
     @FXML
-    void LoadMeds() {
+    void loadData() {
         try {
             medications = storage.loadList(medicationsFile, Medication.class);
+            pharmacies =storage.loadList(pharmaciesFile, Pharmacy.class);
         } catch (IOException e) {
             System.err.println("Chyba při načítání: " + e.getMessage());
         }
         System.out.println("NACTENO" + ' ' + medications.size() + ' ' + "polozek");
-
+    }
+    @FXML
+    void saveData() {
 
     }
 
     @FXML
-    void AddMed() {
-
-            medications.add(new Medication("M006", "Paralen", "Paracetamol", 500f));
-            System.out.println("PRIDAN PARACETAMOL");
-    }
-    @FXML
-    void PrintMeds() {
-        for(Medication m:medications)
+    private void loadDataIntoTable(TableView<Medication> targetTable) {
+        if(targetTable==tableMeds)
         {
-            System.out.println(m.toString());
+            ObservableList<Medication> observableList = FXCollections.observableArrayList(medications);
+            tableMeds.setItems(observableList);
+        }
+    }
+
+    @FXML
+    private void addMedicationToDatabase()
+    {
+        try {
+            medications.add(new Medication(medTxtId.getText(),medTxtName.getText(),medTxtActiveIngredient.getText(),Float.parseFloat(medTxtDosage.getText())));
+            System.out.println("LÉK PŘIDÁN");
+            loadDataIntoTable(tableMeds);
+        }
+        catch(NumberFormatException e)
+        {
+            e.printStackTrace();
+            System.err.println("Chyba: Nepodařilo se přidat lék ");
+        }
+
+    }
+
+    @FXML
+    private void switchScene(ActionEvent event, String fxmlFileName) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
+            Parent root = fxmlLoader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            Scene scene = new Scene(root, 1240, 500);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Chyba: Nepodařilo se načíst soubor " + fxmlFileName);
         }
     }
 }
