@@ -63,5 +63,5 @@ public abstract class Medication {
     public abstract boolean isPrescriptionRequired();
 
     @Override
-    public String toString() { return "Lék:" + ' ' + name + ' ' + "s aktivní látkou" + ' ' + activeIngredient + ' ' + "v obsahu" + ' ' +doseMgs + "mg" + getDispensingInfo();}
+    public String toString() { return "Lék s názvem" + ' ' +name + ','+' ' + "s aktivní látkou" + ' ' + activeIngredient + ' ' + "v obsahu" + ' ' +doseMgs + "mg." + ' '+ getDispensingInfo() + '.';}
 }

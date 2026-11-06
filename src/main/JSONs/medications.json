@@ -24,4 +24,11 @@
   "name" : "MagneB6",
   "activeIngredient" : "Magnézium",
   "doseMgs" : 500.0
+}, {
+  "prescriptionOnly" : "true",
+  "id" : "3e88e098-a495-410f-b9d0-dc7556c9eb18",
+  "name" : "Rivotril",
+  "activeIngredient" : "Klonazepam",
+  "doseMgs" : 0.5,
+  "maxPackagesPerPrescription" : 2
 } ]

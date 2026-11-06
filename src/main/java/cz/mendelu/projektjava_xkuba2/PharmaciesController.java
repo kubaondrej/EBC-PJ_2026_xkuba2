@@ -36,23 +36,8 @@ public class PharmaciesController {
     @FXML
     private void backToMenu(ActionEvent event)
     {
-        switchScene(event, "menu_scene.fxml");
+        SceneSwitcher.switchTo(event, "menu_scene.fxml");
     }
 
-    private void switchScene(ActionEvent event, String fxmlFileName) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
-            Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            Scene scene = new Scene(root, 1240, 500);
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("Chyba: Nepodařilo se načíst soubor " + fxmlFileName);
-        }
-    }
 }

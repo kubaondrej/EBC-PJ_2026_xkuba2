@@ -19,9 +19,8 @@
     <Label text="HLAVNI MENU"/>
 
 
-    <HBox alignment="CENTER" spacing="10.0">
-        <Button text="DATABÁZE LÉKŮ" onAction="#switchToMedDatabase"/>
-        <Button text="SEZNAM LÉKÁREN" onAction="#SwitchToPharmDatabase"/>
-    </HBox>
+    <Button text="DATABÁZE LÉKŮ" prefWidth="1000" prefHeight="230" onAction="#switchToMedDatabase"/>
+    <Button text="SEZNAM LÉKÁREN" prefWidth="1000" prefHeight="230" onAction="#SwitchToPharmDatabase"/>
+
 
 </VBox>

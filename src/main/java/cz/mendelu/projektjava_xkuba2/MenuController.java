@@ -1,5 +1,5 @@
 package cz.mendelu.projektjava_xkuba2;
-
+import cz.mendelu.projektjava_xkuba2.SceneSwitcher;
 import cz.mendelu.projektjava_xkuba2.model.Medication;
 import cz.mendelu.projektjava_xkuba2.model.OverTheCounterMedication;
 import cz.mendelu.projektjava_xkuba2.model.Pharmacy;
@@ -30,33 +30,17 @@ public class MenuController {
 
     @FXML
     private void switchToMedDatabase(ActionEvent event) {
-        switchScene(event, "medications_scene.fxml");
+        SceneSwitcher.switchTo(event, "medications_scene.fxml");
     }
 
     @FXML
     private void SwitchToPharmDatabase(ActionEvent event) {
-        switchScene(event, "pharmacies_scene.fxml");
+        SceneSwitcher.switchTo(event, "pharmacies_scene.fxml");
     }
 
 
 
 
 
-    @FXML
-    private void switchScene(ActionEvent event, String fxmlFileName) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
-            Parent root = fxmlLoader.load();
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            Scene scene = new Scene(root, 1240, 500);
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("Chyba: Nepodařilo se načíst soubor " + fxmlFileName);
-        }
-    }
 }

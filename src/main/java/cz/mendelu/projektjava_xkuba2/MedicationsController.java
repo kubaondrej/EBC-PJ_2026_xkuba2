@@ -1,28 +1,17 @@
 package cz.mendelu.projektjava_xkuba2;
+import cz.mendelu.projektjava_xkuba2.service.*;
 import cz.mendelu.projektjava_xkuba2.storage.*;
 import cz.mendelu.projektjava_xkuba2.model.*;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.SimpleStringProperty;
-
-
-
-import java.io.IOException;
-
-import java.nio.file.Path;
-
-import java.util.ArrayList;
-import java.util.List;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class MedicationsController {
 
@@ -52,6 +41,9 @@ public class MedicationsController {
     @FXML
     private TextField medTxtPackagesPerPrescription;
 
+    @FXML
+    private Label lblMedInfo;
+
     //checkbox pro vlastnost na predpis
     @FXML
     private CheckBox isPrescriptionOnlyCheckbox;
@@ -59,17 +51,16 @@ public class MedicationsController {
 
     private final JsonStorage storage = new JsonStorage();
     //CESTY K JSONUM
-    private final Path medicationsFile = Path.of("src", "main", "JSONs", "medications.json");
-    private final Path pharmaciesFile = Path.of("src", "main", "JSONs", "pharmacies.json");
+
     //DATA LEKAREN A POBOCEK
-    private List<Pharmacy> pharmacies = new ArrayList<>();
-    private List<Medication> medications = new ArrayList<>();
+//    private List<Pharmacy> pharmacies = new ArrayList<>();
+//    private List<Medication> medications = new ArrayList<>();
 
     @FXML
     public void initialize() {
-        System.out.println("INITIALIZACE");
-        loadData();
-        loadDataIntoTable(tableMeds);
+        LoggingService.log("INITIALIZACE pharmacies_scene.fxml");
+//        loadData();
+        loadDataIntoTable();
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colActiveIngredient.setCellValueFactory(new PropertyValueFactory<>("activeIngredient"));
@@ -77,35 +68,15 @@ public class MedicationsController {
     }
 
 
-    @FXML
-    void loadData() {
-        try {
-            medications = storage.loadList(medicationsFile, Medication.class);
-            //pharmacies =storage.loadList(pharmaciesFile, Pharmacy.class);
-        } catch (IOException e) {
-            System.err.println("Chyba při načítání: " + e.getMessage());
-        }
-        System.out.println("NACTENO" + ' ' + medications.size() + ' ' + "polozek");
-    }
-    @FXML
-    void saveData() {
-        try {
-            storage.saveList(medications, medicationsFile, Medication.class);
-            //storage.saveList(pharmacies, pharmaciesFile);
-        } catch (IOException e) {
-            System.err.println("Chyba při ukládání: " + e.getMessage());
-        }
-        System.out.println("ULOZENO" + ' ' + medications.size() + ' ' + "polozek");
-    }
 
     @FXML
-    private void loadDataIntoTable(TableView<Medication> targetTable) {
-        if(targetTable==tableMeds)
-        {
-            ObservableList<Medication> observableList = FXCollections.observableArrayList(medications);
+    private void loadDataIntoTable() {
+            LoggingService.log("NACITAM DATA DO TABULKY LEKU");
+
+            ObservableList<Medication> observableList = FXCollections.observableArrayList(AppData.getMedications());
             tableMeds.setItems(observableList);
             colIsPrescriptionOnly.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().isPrescriptionRequired() ? "Ano" : "Ne"));
-        }
+
     }
 
     @FXML
@@ -113,6 +84,7 @@ public class MedicationsController {
     {
         try {
             Medication medToAdd;
+
             if(isPrescriptionOnlyCheckbox.isSelected())
             {
                 medToAdd = new PrescriptionMedication(medTxtName.getText(),medTxtActiveIngredient.getText(),Float.parseFloat(medTxtDosage.getText()), Integer.parseInt(medTxtPackagesPerPrescription.getText()));
@@ -121,25 +93,39 @@ public class MedicationsController {
             {
                 medToAdd = new OverTheCounterMedication(medTxtName.getText(),medTxtActiveIngredient.getText(),Float.parseFloat(medTxtDosage.getText()));
             }
-            medications.add(medToAdd);
+            AppData.getMedications().add(medToAdd);
 
-            System.out.println("LÉK PŘIDÁN");
-            loadDataIntoTable(tableMeds);
+            LoggingService.log("LÉK PŘIDÁN");
+            AppData.save();
+            loadDataIntoTable();
         }
         catch(NumberFormatException e)
         {
             e.printStackTrace();
+            showErrorMessage("Nepodařilo se přidat lék","ŠPATNÝ FORMÁT");
             System.err.println("Chyba: Nepodařilo se přidat lék ");
         }
         medTxtName.setText("");
         medTxtActiveIngredient.setText("");
         medTxtDosage.setText("");
     }
+    @FXML
+    private void removeMedicationFromDatabase()
+    {
+        Medication selected = tableMeds.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            return;
+        }
+        AppData.getMedications().removeIf(m -> m.getId().equals(selected.getId()));
+        AppData.save();
+        loadDataIntoTable();
+        lblMedInfo.setText("Nevybrán žádný lék");
+    }
 
     @FXML
     private void prescriptionCheckboxAction()
     {
-        System.out.println("CHECKBOX STATE:" + isPrescriptionOnlyCheckbox.isSelected());
+        LoggingService.log("CHECKBOX STATE:" + isPrescriptionOnlyCheckbox.isSelected());
         if(isPrescriptionOnlyCheckbox.isSelected())
         {
             medTxtPackagesPerPrescription.setDisable(false);
@@ -151,32 +137,33 @@ public class MedicationsController {
     }
 
     @FXML
-    private void backToMenu(ActionEvent event)
+    private void showMedicationInfo()
     {
-        switchScene(event, "menu_scene.fxml");
-    }
-
-    private void switchScene(ActionEvent event, String fxmlFileName) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
-            Parent root = fxmlLoader.load();
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            Scene scene = new Scene(root, 1240, 500);
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("Chyba: Nepodařilo se načíst soubor " + fxmlFileName);
+        Medication selected = tableMeds.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            return;
         }
+        LoggingService.log("KLIKNUTO NA POLOZKU V SEZNAMU S ID:"+selected.getId());
+        lblMedInfo.setText(selected.toString());
+
     }
 
     @FXML
-    private void reloadData()
+    private void backToMenu(ActionEvent event)
     {
-        loadData();
-        loadDataIntoTable(tableMeds);
+        SceneSwitcher.switchTo(event, "menu_scene.fxml");
     }
+
+    private void showErrorMessage(String title, String message) {
+        Alert alert = new Alert(AlertType.ERROR); // Nastavení typu na ERROR
+        alert.setTitle("Chyba");
+        alert.setHeaderText(title);
+        alert.setContentText(message);
+
+        alert.showAndWait(); // Zobrazí okno a počká, než ho uživatel zavře
+    }
+
+
+
+
 }
