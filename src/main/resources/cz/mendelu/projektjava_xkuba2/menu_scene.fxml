@@ -9,18 +9,20 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.CheckBox?>
-<VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
+<VBox alignment="TOP_CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
       fx:controller="cz.mendelu.projektjava_xkuba2.MenuController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
 
-    <Label text="HLAVNI MENU"/>
+    <Label text="HLAVNÍ MENU" style="-fx-font-size: 25px; -fx-font-weight: bold;"/>
 
 
-    <Button text="DATABÁZE LÉKŮ" prefWidth="1000" prefHeight="230" onAction="#switchToMedDatabase"/>
-    <Button text="SEZNAM LÉKÁREN" prefWidth="1000" prefHeight="230" onAction="#SwitchToPharmDatabase"/>
+    <Button text="DATABÁZE LÉKŮ" prefWidth="1000" prefHeight="230" onAction="#switchToMedDatabase" style="-fx-background-color:#a8ffb8;"/>
+    <Button text="SEZNAM LÉKÁREN" prefWidth="1000" prefHeight="230" onAction="#SwitchToPharmDatabase" style="-fx-background-color:#a8d3ff;"/>
+    <Button text="STATISTIKY" prefWidth="1000" prefHeight="150" onAction="#SwitchToStatistics" style="-fx-background-color:#fff6a7;"/>
+    <Button text="KONEC" prefWidth="1000" prefHeight="150" onAction="#quit" style="-fx-background-color:salmon;"/>
 
 
 </VBox>

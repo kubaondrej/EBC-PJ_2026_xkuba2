@@ -31,4 +31,10 @@
   "activeIngredient" : "Klonazepam",
   "doseMgs" : 0.5,
   "maxPackagesPerPrescription" : 2
+}, {
+  "prescriptionOnly" : "false",
+  "id" : "9b480eed-32f8-4908-ae9a-4819d6c67822",
+  "name" : "FRONTPRO",
+  "activeIngredient" : "afoxolaner",
+  "doseMgs" : 28.3
 } ]

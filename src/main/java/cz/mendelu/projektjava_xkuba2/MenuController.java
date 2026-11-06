@@ -1,30 +1,8 @@
 package cz.mendelu.projektjava_xkuba2;
-import cz.mendelu.projektjava_xkuba2.SceneSwitcher;
-import cz.mendelu.projektjava_xkuba2.model.Medication;
-import cz.mendelu.projektjava_xkuba2.model.OverTheCounterMedication;
-import cz.mendelu.projektjava_xkuba2.model.Pharmacy;
-import cz.mendelu.projektjava_xkuba2.model.PrescriptionMedication;
-import cz.mendelu.projektjava_xkuba2.storage.JsonStorage;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import cz.mendelu.projektjava_xkuba2.service.AppData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.application.Platform;
 
 public class MenuController {
 
@@ -36,6 +14,20 @@ public class MenuController {
     @FXML
     private void SwitchToPharmDatabase(ActionEvent event) {
         SceneSwitcher.switchTo(event, "pharmacies_scene.fxml");
+    }
+
+    @FXML
+    private void SwitchToStatistics(ActionEvent event) {
+        SceneSwitcher.switchTo(event, "statistics_scene.fxml");
+    }
+
+    @FXML
+    private void quit()
+    {
+        AppData.save();
+        //JAKY JE ROZDIL MEZI PLATFORM/SYSTEM EXIT? TODO: OBJASNIT
+        Platform.exit();
+        System.exit(0);
     }
 
 

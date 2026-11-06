@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         AppData.load();   // načte hned po spuštění
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu_scene.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 250);
+        Scene scene = new Scene(fxmlLoader.load(), SceneSwitcher.getMenuWIDTH(), SceneSwitcher.getMenuHEIGHT());
         stage.setTitle("Lékařská dtaabáze");
         stage.setScene(scene);
         stage.show();

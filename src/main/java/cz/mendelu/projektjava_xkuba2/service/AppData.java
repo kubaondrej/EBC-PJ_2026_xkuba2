@@ -28,7 +28,7 @@ public final class AppData {
         try {
 
             medications = storage.loadList(medicationsFile, Medication.class);
-            LoggingService.log("AppData - Medications"+ ' ' + medications.size()+ ' ' + "načteno");
+            LoggingService.log(medications.size()+ ' ' + "POLOŽEK LEKU"+"načteno");
         } catch (IOException e) {
             System.err.println("Chyba při načítání: " + e.getMessage());
         }
@@ -37,6 +37,7 @@ public final class AppData {
     public static void save() {
         try {
             storage.saveList(medications, medicationsFile, Medication.class);
+            LoggingService.log("ULOŽENO" + ' ' + medications.size()+ ' ' + "POLOŽEK LEKU");
         } catch (IOException e) {
             System.err.println("Chyba při ukládání: " + e.getMessage());
         }

@@ -1,6 +1,5 @@
 package cz.mendelu.projektjava_xkuba2;
 import cz.mendelu.projektjava_xkuba2.service.*;
-import cz.mendelu.projektjava_xkuba2.storage.*;
 import cz.mendelu.projektjava_xkuba2.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,8 +48,6 @@ public class MedicationsController {
     private CheckBox isPrescriptionOnlyCheckbox;
 //LEKARNY
 
-    private final JsonStorage storage = new JsonStorage();
-    //CESTY K JSONUM
 
     //DATA LEKAREN A POBOCEK
 //    private List<Pharmacy> pharmacies = new ArrayList<>();
@@ -151,16 +148,16 @@ public class MedicationsController {
     @FXML
     private void backToMenu(ActionEvent event)
     {
-        SceneSwitcher.switchTo(event, "menu_scene.fxml");
+        SceneSwitcher.switchToMenu(event);
     }
 
     private void showErrorMessage(String title, String message) {
-        Alert alert = new Alert(AlertType.ERROR); // Nastavení typu na ERROR
+        Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Chyba");
         alert.setHeaderText(title);
         alert.setContentText(message);
 
-        alert.showAndWait(); // Zobrazí okno a počká, než ho uživatel zavře
+        alert.showAndWait();
     }
 
 
