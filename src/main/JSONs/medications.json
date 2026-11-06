@@ -1,26 +1,27 @@
 [ {
-  "id" : "M001",
+  "prescriptionOnly" : "true",
+  "id" : "b89b6a3a-ff5c-4883-afce-209a938f9c3b",
   "name" : "Valium",
   "activeIngredient" : "Diazepam",
-  "doseMgs" : 2.5
+  "doseMgs" : 2.5,
+  "maxPackagesPerPrescription" : 2
 }, {
-  "id" : "M002",
-  "name" : "Lorazepam",
-  "activeIngredient" : "Lorazepam",
-  "doseMgs" : 1.5
-}, {
-  "id" : "M003",
-  "name" : "Ritalin",
-  "activeIngredient" : "Methylfenidát",
-  "doseMgs" : 10.0
-}, {
-  "id" : "M004",
-  "name" : "Ibuprofen",
+  "prescriptionOnly" : "false",
+  "id" : "c3a05b92-fe84-4e42-9fd7-b67f2fa677e3",
+  "name" : "Ibalgin",
   "activeIngredient" : "Ibuprofen",
   "doseMgs" : 400.0
 }, {
-  "id" : "M005",
-  "name" : "Benadryl",
-  "activeIngredient" : "Difenhydramin",
-  "doseMgs" : 50.0
-}]
+  "prescriptionOnly" : "true",
+  "id" : "4d4cf9af-0c4a-4670-875b-f2dde06c19de",
+  "name" : "Lexaurin",
+  "activeIngredient" : "Bromazepam",
+  "doseMgs" : 2.0,
+  "maxPackagesPerPrescription" : 2
+}, {
+  "prescriptionOnly" : "false",
+  "id" : "381167bb-1407-4ec0-bcad-c2c6fe62dfa3",
+  "name" : "MagneB6",
+  "activeIngredient" : "Magnézium",
+  "doseMgs" : 500.0
+} ]

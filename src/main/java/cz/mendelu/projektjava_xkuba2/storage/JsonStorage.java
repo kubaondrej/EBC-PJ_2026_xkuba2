@@ -24,12 +24,13 @@ public class JsonStorage {
      * @param <T>
      * @throws IOException
      */
-    public <T> void saveList(List<T> items, Path file) throws IOException {
+    public <T> void saveList(List<T> items, Path file, Class<T> elementType) throws IOException {
         Path parent = file.getParent();
         if (parent != null) {
             Files.createDirectories(parent);
         }
-        mapper.writeValue(file.toFile(), items);
+        mapper.writerFor(mapper.getTypeFactory().constructCollectionType(List.class, elementType))
+                .writeValue(file.toFile(), items);
     }
 
     /**

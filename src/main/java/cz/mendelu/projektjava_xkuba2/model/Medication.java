@@ -1,13 +1,24 @@
 package cz.mendelu.projektjava_xkuba2.model;
 
-public class Medication {
-    String id;
+import java.util.UUID;
+
+//jakcson saskarny
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+//PRO JACKSON!! MUSI TADY BEJT!!!!!
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "prescriptionOnly")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = PrescriptionMedication.class, name = "true"),
+        @JsonSubTypes.Type(value = OverTheCounterMedication.class, name = "false")
+})
+public abstract class Medication {
+    private String id = UUID.randomUUID().toString();
     String name;
     String activeIngredient;
     float doseMgs;
 
-    public Medication(String id,String name, String activeIngredient, float doseMgs) {
-        this.id=id;
+    public Medication(String name, String activeIngredient, float doseMgs) {
         this.name = name;
         this.activeIngredient = activeIngredient;
         this.doseMgs = doseMgs;
@@ -46,6 +57,11 @@ public class Medication {
     public float getDoseMgs() {
         return doseMgs;
     }
+    @JsonIgnore
+    public abstract String getDispensingInfo();
+    @JsonIgnore
+    public abstract boolean isPrescriptionRequired();
+
     @Override
-    public String toString() { return "Lék:" + ' ' + name + ' ' + "s aktivní látkou" + ' ' + activeIngredient + ' ' + "v obsahu" + ' ' +doseMgs + "mg";}
+    public String toString() { return "Lék:" + ' ' + name + ' ' + "s aktivní látkou" + ' ' + activeIngredient + ' ' + "v obsahu" + ' ' +doseMgs + "mg" + getDispensingInfo();}
 }

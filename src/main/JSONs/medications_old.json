@@ -1,0 +1,42 @@
+[ {
+  "id" : "M001",
+  "name" : "Valium",
+  "activeIngredient" : "Diazepam",
+  "doseMgs" : 2.5
+}, {
+  "id" : "M002",
+  "name" : "Lorazepam",
+  "activeIngredient" : "Lorazepam",
+  "doseMgs" : 1.5
+}, {
+  "id" : "M003",
+  "name" : "Ritalin",
+  "activeIngredient" : "Methylfenidát",
+  "doseMgs" : 10.0
+}, {
+  "id" : "M004",
+  "name" : "Ibuprofen",
+  "activeIngredient" : "Ibuprofen",
+  "doseMgs" : 400.0
+}, {
+  "id" : "M005",
+  "name" : "Benadryl",
+  "activeIngredient" : "Difenhydramin",
+  "doseMgs" : 50.0
+}]
+
+
+[ {
+  "prescriptionOnly": "true",
+  "id" : "...",
+  "name" : "Valium",
+  "activeIngredient" : "Diazepam",
+  "doseMgs" : 2.5,
+  "maxPackagesPerPrescription" : 2
+}, {
+  "prescriptionOnly": "false",
+  "id" : "...",
+  "name" : "Ibalgin",
+  "activeIngredient" : "Ibuprofen",
+  "doseMgs" : 400.0
+} ]
