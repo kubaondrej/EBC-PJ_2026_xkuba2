@@ -12,17 +12,21 @@ import java.util.List;
 public final class AppData {
 
     private static final JsonStorage storage = new JsonStorage();
+
     private static final Path medicationsFile = Path.of("src", "main", "JSONs", "medications.json");
+    private static final Path pharmaciesFile = Path.of("src", "main", "JSONs", "pharmacies.json");
 
     private static List<Medication> medications = new ArrayList<>();
     private static List<Pharmacy> pharmacies = new ArrayList<>();
 
-    static {}
 
     private AppData() {}
 
     public static List<Medication> getMedications() { return medications; }
     public static List<Pharmacy> getPharmacies() { return pharmacies; }
+
+    public static Path getMedicationsFile() { return medicationsFile;}
+    public static Path getPharmaciesFile() { return pharmaciesFile;}
 
     public static void load() {
         try {

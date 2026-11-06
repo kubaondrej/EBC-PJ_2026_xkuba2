@@ -39,6 +39,7 @@ public class MedicationsController {
     private TextField medTxtDosage;
     @FXML
     private TextField medTxtPackagesPerPrescription;
+    //vyhledavani
 
     @FXML
     private Label lblMedInfo;
@@ -130,6 +131,7 @@ public class MedicationsController {
         else
         {
             medTxtPackagesPerPrescription.setDisable(true);
+            medTxtPackagesPerPrescription.setText("");
         }
     }
 
@@ -146,10 +148,17 @@ public class MedicationsController {
     }
 
     @FXML
+    private void searchMedicationByName()
+    {
+
+    }
+
+    @FXML
     private void backToMenu(ActionEvent event)
     {
         SceneSwitcher.switchToMenu(event);
     }
+
 
     private void showErrorMessage(String title, String message) {
         Alert alert = new Alert(AlertType.ERROR);

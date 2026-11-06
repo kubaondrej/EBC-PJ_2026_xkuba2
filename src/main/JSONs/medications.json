@@ -37,4 +37,10 @@
   "name" : "FRONTPRO",
   "activeIngredient" : "afoxolaner",
   "doseMgs" : 28.3
+}, {
+  "prescriptionOnly" : "false",
+  "id" : "04e33e6b-1d9a-4ef4-a41a-eff39576a636",
+  "name" : "Benadryl",
+  "activeIngredient" : "Diphenhydramin",
+  "doseMgs" : 50.0
 } ]

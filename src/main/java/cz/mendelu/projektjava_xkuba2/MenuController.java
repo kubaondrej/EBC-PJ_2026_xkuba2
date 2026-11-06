@@ -18,7 +18,7 @@ public class MenuController {
 
     @FXML
     private void SwitchToStatistics(ActionEvent event) {
-        SceneSwitcher.switchTo(event, "statistics_scene.fxml");
+        SceneSwitcher.switchTo(event, "statistics_scene.fxml", 450,300);
     }
 
     @FXML

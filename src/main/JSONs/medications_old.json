@@ -25,18 +25,3 @@
   "doseMgs" : 50.0
 }]
 
-
-[ {
-  "prescriptionOnly": "true",
-  "id" : "...",
-  "name" : "Valium",
-  "activeIngredient" : "Diazepam",
-  "doseMgs" : 2.5,
-  "maxPackagesPerPrescription" : 2
-}, {
-  "prescriptionOnly": "false",
-  "id" : "...",
-  "name" : "Ibalgin",
-  "activeIngredient" : "Ibuprofen",
-  "doseMgs" : 400.0
-} ]
