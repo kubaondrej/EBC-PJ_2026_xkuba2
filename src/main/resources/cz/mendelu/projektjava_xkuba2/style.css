@@ -10,11 +10,23 @@
     -fx-font-size: 12px;
     -fx-background-color: #ff5858;
     -fx-text-alignment: CENTER;
-    -fx-padding: 1px 50px 1px 50px;
+    -fx-padding: 1px 20px 1px 20px;
+    -fx-font-weight: bold;
+}
+
+.okay_label{
+    -fx-font-size: 12px;
+    -fx-background-color: #58ff5b;
+    -fx-text-alignment: CENTER;
+    -fx-padding: 1px 20px 1px 20px;
     -fx-font-weight: bold;
 }
 
 .menu_button{
     -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.highlightedColumn {
     -fx-font-weight: bold;
 }

@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(
         HelloApplication.class.getResource("/cz/mendelu/projektjava_xkuba2/menu_scene.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), SceneSwitcher.getMenuWIDTH(), SceneSwitcher.getMenuHEIGHT());
-        stage.setTitle("Lékařská dtaabáze");
+        stage.setTitle("DATAPHARMA");
         stage.setScene(scene);
         stage.show();
     }

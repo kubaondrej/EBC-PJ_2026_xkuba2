@@ -23,8 +23,7 @@ public abstract class Medication {
         this.activeIngredient = activeIngredient;
         this.doseMgs = doseMgs;
     }
-    public Medication() {
-    }
+    public Medication(){}
 
     public void setId(String id) {
         this.id = id;

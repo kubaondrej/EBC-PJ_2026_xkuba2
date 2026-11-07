@@ -22,7 +22,7 @@ public class StatisticsController {
         lblMedicationCount.setText(Integer.toString(StatisticsService.getMedicationCount()));
         lblPrescriptionMedicationCount.setText(Integer.toString(StatisticsService.getPrescriptionMedicationCount()));
         lblOTCMedicationCount.setText(Integer.toString(StatisticsService.getOTCMedicationCount()));
-        lblMedicationsFileSize.setText(Long.toString(StatisticsService.getFileSize(AppData.getPharmaciesFile())) + 'b');
+        lblMedicationsFileSize.setText(Long.toString(StatisticsService.getFileSize(AppData.getDispensingPointsFile())) + 'b');
     }
     @FXML
     private void backToMenu(ActionEvent event)
