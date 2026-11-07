@@ -25,13 +25,6 @@
   "activeIngredient" : "Magnézium",
   "doseMgs" : 500.0
 }, {
-  "prescriptionOnly" : "true",
-  "id" : "3e88e098-a495-410f-b9d0-dc7556c9eb18",
-  "name" : "Rivotril",
-  "activeIngredient" : "Klonazepam",
-  "doseMgs" : 0.5,
-  "maxPackagesPerPrescription" : 2
-}, {
   "prescriptionOnly" : "false",
   "id" : "9b480eed-32f8-4908-ae9a-4819d6c67822",
   "name" : "FRONTPRO",
@@ -43,4 +36,11 @@
   "name" : "Benadryl",
   "activeIngredient" : "Diphenhydramin",
   "doseMgs" : 50.0
+}, {
+  "prescriptionOnly" : "true",
+  "id" : "166695e6-4e2f-4372-ac7f-77dc0d43d171",
+  "name" : "Rivotril",
+  "activeIngredient" : "Klonazepam",
+  "doseMgs" : 0.5,
+  "maxPackagesPerPrescription" : 1
 } ]

@@ -1,4 +1,4 @@
-package cz.mendelu.projektjava_xkuba2;
+package cz.mendelu.projektjava_xkuba2.controllers;
 import cz.mendelu.projektjava_xkuba2.service.*;
 import cz.mendelu.projektjava_xkuba2.model.*;
 import javafx.event.ActionEvent;
@@ -11,6 +11,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MedicationsController {
 
@@ -40,25 +43,19 @@ public class MedicationsController {
     @FXML
     private TextField medTxtPackagesPerPrescription;
     //vyhledavani
-
+    @FXML
+    private TextField txtSearch;
     @FXML
     private Label lblMedInfo;
 
     //checkbox pro vlastnost na predpis
     @FXML
     private CheckBox isPrescriptionOnlyCheckbox;
-//LEKARNY
-
-
-    //DATA LEKAREN A POBOCEK
-//    private List<Pharmacy> pharmacies = new ArrayList<>();
-//    private List<Medication> medications = new ArrayList<>();
 
     @FXML
     public void initialize() {
         LoggingService.log("INITIALIZACE pharmacies_scene.fxml");
-//        loadData();
-        loadDataIntoTable();
+        loadDataIntoTable(AppData.getMedications());
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colActiveIngredient.setCellValueFactory(new PropertyValueFactory<>("activeIngredient"));
@@ -68,10 +65,10 @@ public class MedicationsController {
 
 
     @FXML
-    private void loadDataIntoTable() {
+    private void loadDataIntoTable(List<Medication> data) {
             LoggingService.log("NACITAM DATA DO TABULKY LEKU");
 
-            ObservableList<Medication> observableList = FXCollections.observableArrayList(AppData.getMedications());
+            ObservableList<Medication> observableList = FXCollections.observableArrayList(data);
             tableMeds.setItems(observableList);
             colIsPrescriptionOnly.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().isPrescriptionRequired() ? "Ano" : "Ne"));
 
@@ -95,7 +92,7 @@ public class MedicationsController {
 
             LoggingService.log("LÉK PŘIDÁN");
             AppData.save();
-            loadDataIntoTable();
+            loadDataIntoTable(AppData.getMedications());
         }
         catch(NumberFormatException e)
         {
@@ -116,8 +113,9 @@ public class MedicationsController {
         }
         AppData.getMedications().removeIf(m -> m.getId().equals(selected.getId()));
         AppData.save();
-        loadDataIntoTable();
+        loadDataIntoTable(AppData.getMedications());
         lblMedInfo.setText("Nevybrán žádný lék");
+        txtSearch.setText("");
     }
 
     @FXML
@@ -150,7 +148,27 @@ public class MedicationsController {
     @FXML
     private void searchMedicationByName()
     {
+        List<Medication> searchResults = new ArrayList<>();
+        LoggingService.log("HLED8M - "+ txtSearch.getText());
 
+        for(Medication m:AppData.getMedications())
+        {
+           if(txtSearch.getText().length()<=m.getName().length())
+           {
+                if(m.getName().substring(0,txtSearch.getText().length()).toLowerCase().equals(txtSearch.getText().toLowerCase()))
+                {
+                    LoggingService.log("NALEZENO - "+m.getName());
+                    searchResults.add(m);
+                }
+           }
+        }
+        loadDataIntoTable(searchResults);
+    }
+    @FXML
+    private void resetSearchFilter()
+    {
+        txtSearch.setText("");
+        loadDataIntoTable(AppData.getMedications());
     }
 
     @FXML

@@ -1,4 +1,4 @@
-package cz.mendelu.projektjava_xkuba2;
+package cz.mendelu.projektjava_xkuba2.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

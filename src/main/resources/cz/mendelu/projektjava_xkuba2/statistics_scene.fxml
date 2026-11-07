@@ -9,7 +9,7 @@
 
 <VBox alignment="TOP_CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
       stylesheets="@style.css"
-      fx:controller="cz.mendelu.projektjava_xkuba2.StatisticsController">
+      fx:controller="cz.mendelu.projektjava_xkuba2.controllers.StatisticsController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>

@@ -74,7 +74,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>cz.mendelu.projektjava_xkuba2/cz.mendelu.projektjava_xkuba2.HelloApplication
+                            <mainClass>cz.mendelu.projektjava_xkuba2/cz.mendelu.projektjava_xkuba2.controllers.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

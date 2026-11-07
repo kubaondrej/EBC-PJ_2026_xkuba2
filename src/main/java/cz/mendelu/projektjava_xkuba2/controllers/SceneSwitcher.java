@@ -1,4 +1,4 @@
-package cz.mendelu.projektjava_xkuba2;
+package cz.mendelu.projektjava_xkuba2.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +11,9 @@ import java.io.IOException;
 
 
 public final class SceneSwitcher {
+
+    //musi tady byt, jinak pada
+    private static final String FXML_PATH = "/cz/mendelu/projektjava_xkuba2/";
 
     private static int WIDTH;
     private static int HEIGHT;
@@ -32,7 +35,7 @@ public final class SceneSwitcher {
         WIDTH=width;
         HEIGHT=height;
         try {
-            FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(fxmlFileName));
+            FXMLLoader loader = new FXMLLoader(SceneSwitcher.class.getResource(FXML_PATH + fxmlFileName));
             Parent root = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

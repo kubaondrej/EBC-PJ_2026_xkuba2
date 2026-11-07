@@ -1,4 +1,4 @@
-package cz.mendelu.projektjava_xkuba2;
+package cz.mendelu.projektjava_xkuba2.controllers;
 
 import cz.mendelu.projektjava_xkuba2.service.AppData;
 import cz.mendelu.projektjava_xkuba2.service.StatisticsService;
