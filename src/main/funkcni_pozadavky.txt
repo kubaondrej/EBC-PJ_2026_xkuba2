@@ -1,0 +1,7 @@
+1.Přidání nového léku (včetně volby vlastnosti zda je na předpis).
+2.Úprava a smazání léku.
+3.Vyhledávání a filtrování léků (podle názvu, účinné látky, na předpis).
+4.Přiřazení léku do skladu lékárny a jeho odebrání.
+5.Řazení výpisů v tabulkách.
+6.Souhrnný přehled o datech uložených v programu např. počet uložených léčiv, počet evidovaných poboček
+7.Uložení stavu do JSON a jeho načtení

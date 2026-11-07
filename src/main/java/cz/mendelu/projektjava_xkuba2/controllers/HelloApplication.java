@@ -16,8 +16,6 @@ public class HelloApplication extends Application {
         HelloApplication.class.getResource("/cz/mendelu/projektjava_xkuba2/menu_scene.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), SceneSwitcher.getMenuWIDTH(), SceneSwitcher.getMenuHEIGHT());
         stage.setTitle("Lékařská dtaabáze");
-        String valium="Valium";
-        System.out.println(valium.substring(0,2));
         stage.setScene(scene);
         stage.show();
     }

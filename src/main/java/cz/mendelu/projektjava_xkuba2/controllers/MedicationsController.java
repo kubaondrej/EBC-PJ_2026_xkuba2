@@ -33,6 +33,9 @@ public class MedicationsController {
     private TableColumn<Medication, String> colDosage;
     @FXML
     private TableColumn<Medication, String> colIsPrescriptionOnly;
+    @FXML
+    private TableColumn<Medication, String> colMaxPackagesPerPrescription;
+
     //input boxy pro pridani leku
     @FXML
     private TextField medTxtName;
@@ -50,28 +53,28 @@ public class MedicationsController {
 
     //checkbox pro vlastnost na predpis
     @FXML
-    private CheckBox isPrescriptionOnlyCheckbox;
+    private CheckBox isPrescriptionOnlyChbx;
+
+    //Vyhledávání
+    @FXML
+    private CheckBox searchByActiveIngredientChbx;
+    @FXML
+    private Label lblSearchAttribute;
+    @FXML
+    private Label emptyTableErrorLabel;
 
     @FXML
     public void initialize() {
         LoggingService.log("INITIALIZACE pharmacies_scene.fxml");
-        loadDataIntoTable(AppData.getMedications());
+
+        TableHelper.loadDataIntoTable(tableMeds, AppData.getMedications());
+        updateTableErrorLabel();
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colActiveIngredient.setCellValueFactory(new PropertyValueFactory<>("activeIngredient"));
         colDosage.setCellValueFactory(new PropertyValueFactory<>("doseMgs"));
-    }
-
-
-
-    @FXML
-    private void loadDataIntoTable(List<Medication> data) {
-            LoggingService.log("NACITAM DATA DO TABULKY LEKU");
-
-            ObservableList<Medication> observableList = FXCollections.observableArrayList(data);
-            tableMeds.setItems(observableList);
-            colIsPrescriptionOnly.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().isPrescriptionRequired() ? "Ano" : "Ne"));
-
+        colIsPrescriptionOnly.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().isPrescriptionRequired() ? "Ano" : "Ne"));
+        colMaxPackagesPerPrescription.setCellValueFactory(cell -> {int max = cell.getValue().getMaxPackages(); return new SimpleStringProperty(max > 0 ? String.valueOf(max) : "");});
     }
 
     @FXML
@@ -80,7 +83,7 @@ public class MedicationsController {
         try {
             Medication medToAdd;
 
-            if(isPrescriptionOnlyCheckbox.isSelected())
+            if(isPrescriptionOnlyChbx.isSelected())
             {
                 medToAdd = new PrescriptionMedication(medTxtName.getText(),medTxtActiveIngredient.getText(),Float.parseFloat(medTxtDosage.getText()), Integer.parseInt(medTxtPackagesPerPrescription.getText()));
             }
@@ -92,7 +95,7 @@ public class MedicationsController {
 
             LoggingService.log("LÉK PŘIDÁN");
             AppData.save();
-            loadDataIntoTable(AppData.getMedications());
+            TableHelper.loadDataIntoTable(tableMeds, AppData.getMedications());
         }
         catch(NumberFormatException e)
         {
@@ -113,7 +116,8 @@ public class MedicationsController {
         }
         AppData.getMedications().removeIf(m -> m.getId().equals(selected.getId()));
         AppData.save();
-        loadDataIntoTable(AppData.getMedications());
+        TableHelper.loadDataIntoTable(tableMeds, AppData.getMedications());
+        updateTableErrorLabel();
         lblMedInfo.setText("Nevybrán žádný lék");
         txtSearch.setText("");
     }
@@ -121,8 +125,8 @@ public class MedicationsController {
     @FXML
     private void prescriptionCheckboxAction()
     {
-        LoggingService.log("CHECKBOX STATE:" + isPrescriptionOnlyCheckbox.isSelected());
-        if(isPrescriptionOnlyCheckbox.isSelected())
+        LoggingService.log("CHECKBOX STATE:" + isPrescriptionOnlyChbx.isSelected());
+        if(isPrescriptionOnlyChbx.isSelected())
         {
             medTxtPackagesPerPrescription.setDisable(false);
         }
@@ -142,33 +146,62 @@ public class MedicationsController {
         }
         LoggingService.log("KLIKNUTO NA POLOZKU V SEZNAMU S ID:"+selected.getId());
         lblMedInfo.setText(selected.toString());
-
     }
 
     @FXML
-    private void searchMedicationByName()
+    private void searchMedication()
     {
-        List<Medication> searchResults = new ArrayList<>();
-        LoggingService.log("HLED8M - "+ txtSearch.getText());
 
-        for(Medication m:AppData.getMedications())
+        List<Medication> searchResults = new ArrayList<>();
+        LoggingService.log("HLEDÁM "+ txtSearch.getText());
+
+        String currentMedValue;
+        for (Medication m : AppData.getMedications())
         {
-           if(txtSearch.getText().length()<=m.getName().length())
-           {
-                if(m.getName().substring(0,txtSearch.getText().length()).toLowerCase().equals(txtSearch.getText().toLowerCase()))
-                {
-                    LoggingService.log("NALEZENO - "+m.getName());
-                    searchResults.add(m);
-                }
-           }
+            if (searchByActiveIngredientChbx.isSelected())
+            {
+                currentMedValue=m.getActiveIngredient().substring(0, txtSearch.getText().length());
+            }
+            else
+            {
+                currentMedValue=m.getName().substring(0, txtSearch.getText().length());
+            }
+
+            if (currentMedValue.equalsIgnoreCase(txtSearch.getText()))
+            {
+                LoggingService.log("NALEZENO - " + m.getName());
+                searchResults.add(m);
+            }
         }
-        loadDataIntoTable(searchResults);
+        TableHelper.loadDataIntoTable(tableMeds, searchResults);
+        updateTableErrorLabel();
+
+    }
+
+
+    @FXML
+    private void searchByActiveIngredientChbxAction()
+    {
+        txtSearch.setText("");
+        TableHelper.loadDataIntoTable(tableMeds, AppData.getMedications());
+        if(searchByActiveIngredientChbx.isSelected())
+        {
+            lblSearchAttribute.setText("Aktivní složka:");
+            txtSearch.setPromptText("např. Alprazolam");
+        }
+        else if(!searchByActiveIngredientChbx.isSelected())
+        {
+            lblSearchAttribute.setText("Název:");
+            txtSearch.setPromptText("např. Voltaren");
+
+        }
+
     }
     @FXML
     private void resetSearchFilter()
     {
         txtSearch.setText("");
-        loadDataIntoTable(AppData.getMedications());
+        TableHelper.loadDataIntoTable(tableMeds, AppData.getMedications());
     }
 
     @FXML
@@ -176,7 +209,6 @@ public class MedicationsController {
     {
         SceneSwitcher.switchToMenu(event);
     }
-
 
     private void showErrorMessage(String title, String message) {
         Alert alert = new Alert(AlertType.ERROR);
@@ -186,6 +218,20 @@ public class MedicationsController {
 
         alert.showAndWait();
     }
+
+    private void updateTableErrorLabel()
+    {
+        if(TableHelper.checkIfEmpty(tableMeds))
+        {
+            emptyTableErrorLabel.setVisible(true);
+        }
+        else
+        {
+            emptyTableErrorLabel.setVisible(false);
+        }
+    }
+
+
 
 
 

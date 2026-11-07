@@ -15,7 +15,8 @@ public class PrescriptionMedication extends Medication {
 
     @Override
     public boolean isPrescriptionRequired() { return true; }
-
+    @Override
+    public int getMaxPackages() { return maxPackagesPerPrescription; }
     @Override
     public String getDispensingInfo() {
         return "Pouze na recept, max " + maxPackagesPerPrescription + " balni";

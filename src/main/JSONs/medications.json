@@ -1,46 +1,380 @@
-[ {
-  "prescriptionOnly" : "true",
-  "id" : "b89b6a3a-ff5c-4883-afce-209a938f9c3b",
-  "name" : "Valium",
-  "activeIngredient" : "Diazepam",
-  "doseMgs" : 2.5,
-  "maxPackagesPerPrescription" : 2
-}, {
-  "prescriptionOnly" : "false",
-  "id" : "c3a05b92-fe84-4e42-9fd7-b67f2fa677e3",
-  "name" : "Ibalgin",
-  "activeIngredient" : "Ibuprofen",
-  "doseMgs" : 400.0
-}, {
-  "prescriptionOnly" : "true",
-  "id" : "4d4cf9af-0c4a-4670-875b-f2dde06c19de",
-  "name" : "Lexaurin",
-  "activeIngredient" : "Bromazepam",
-  "doseMgs" : 2.0,
-  "maxPackagesPerPrescription" : 2
-}, {
-  "prescriptionOnly" : "false",
-  "id" : "381167bb-1407-4ec0-bcad-c2c6fe62dfa3",
-  "name" : "MagneB6",
-  "activeIngredient" : "Magnézium",
-  "doseMgs" : 500.0
-}, {
-  "prescriptionOnly" : "false",
-  "id" : "9b480eed-32f8-4908-ae9a-4819d6c67822",
-  "name" : "FRONTPRO",
-  "activeIngredient" : "afoxolaner",
-  "doseMgs" : 28.3
-}, {
-  "prescriptionOnly" : "false",
-  "id" : "04e33e6b-1d9a-4ef4-a41a-eff39576a636",
-  "name" : "Benadryl",
-  "activeIngredient" : "Diphenhydramin",
-  "doseMgs" : 50.0
-}, {
-  "prescriptionOnly" : "true",
-  "id" : "166695e6-4e2f-4372-ac7f-77dc0d43d171",
-  "name" : "Rivotril",
-  "activeIngredient" : "Klonazepam",
-  "doseMgs" : 0.5,
-  "maxPackagesPerPrescription" : 1
-} ]
+[
+  {
+    "prescriptionOnly": "false",
+    "id": "1a2b3c4d-5678-90ab-cdef-111111111111",
+    "name": "Paralen",
+    "activeIngredient": "Paracetamol",
+    "doseMgs": 500.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "1a2b3c4d-5678-90ab-cdef-222222222222",
+    "name": "Ibalgin",
+    "activeIngredient": "Ibuprofen",
+    "doseMgs": 400.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "1a2b3c4d-5678-90ab-cdef-333333333333",
+    "name": "Nalgesin S",
+    "activeIngredient": "Naproxen sodný",
+    "doseMgs": 275.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "1a2b3c4d-5678-90ab-cdef-444444444444",
+    "name": "Aspirin",
+    "activeIngredient": "Kyselina acetylsalicylová",
+    "doseMgs": 500.0
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "1a2b3c4d-5678-90ab-cdef-555555555555",
+    "name": "Aulin",
+    "activeIngredient": "Nimesulid",
+    "doseMgs": 100.0,
+    "maxPackagesPerPrescription": 1
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "1a2b3c4d-5678-90ab-cdef-666666666666",
+    "name": "Zodac",
+    "activeIngredient": "Cetirizin-hydrochlorid",
+    "doseMgs": 10.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "1a2b3c4d-5678-90ab-cdef-777777777777",
+    "name": "Claritine",
+    "activeIngredient": "Loratadin",
+    "doseMgs": 10.0
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "1a2b3c4d-5678-90ab-cdef-888888888888",
+    "name": "Dithiaden",
+    "activeIngredient": "Bisulepin-hydrochlorid",
+    "doseMgs": 1.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "1a2b3c4d-5678-90ab-cdef-999999999999",
+    "name": "Agen",
+    "activeIngredient": "Amlodipin",
+    "doseMgs": 5.0,
+    "maxPackagesPerPrescription": 3
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "2b3c4d5e-6789-01ab-cdef-010101010101",
+    "name": "Letrox",
+    "activeIngredient": "Levothyroxin sodný",
+    "doseMgs": 50.0,
+    "maxPackagesPerPrescription": 3
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "2b3c4d5e-6789-01ab-cdef-020202020202",
+    "name": "Euthyrox",
+    "activeIngredient": "Levothyroxin sodný",
+    "doseMgs": 88.0,
+    "maxPackagesPerPrescription": 3
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "2b3c4d5e-6789-01ab-cdef-030303030303",
+    "name": "Stacyl",
+    "activeIngredient": "Kyselina acetylsalicylová",
+    "doseMgs": 100.0,
+    "maxPackagesPerPrescription": 5
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "2b3c4d5e-6789-01ab-cdef-040404040404",
+    "name": "Prestarium",
+    "activeIngredient": "Perindopril-arginin",
+    "doseMgs": 5.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "2b3c4d5e-6789-01ab-cdef-050505050505",
+    "name": "Atoris",
+    "activeIngredient": "Atorvastatin",
+    "doseMgs": 20.0,
+    "maxPackagesPerPrescription": 3
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "2b3c4d5e-6789-01ab-cdef-060606060606",
+    "name": "Rosucard",
+    "activeIngredient": "Rosuvastatin",
+    "doseMgs": 10.0,
+    "maxPackagesPerPrescription": 3
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "2b3c4d5e-6789-01ab-cdef-070707070707",
+    "name": "Glucophage",
+    "activeIngredient": "Metformin-hydrochlorid",
+    "doseMgs": 1000.0,
+    "maxPackagesPerPrescription": 3
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "2b3c4d5e-6789-01ab-cdef-080808080808",
+    "name": "Milurit",
+    "activeIngredient": "Allopurinol",
+    "doseMgs": 300.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "2b3c4d5e-6789-01ab-cdef-090909090909",
+    "name": "Detralex",
+    "activeIngredient": "Purifikovaná flavonoidová frakce",
+    "doseMgs": 500.0
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "3c4d5e6f-7890-12ab-cdef-101010101010",
+    "name": "Novalgin",
+    "activeIngredient": "Metamizol sodný",
+    "doseMgs": 500.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "3c4d5e6f-7890-12ab-cdef-111111111112",
+    "name": "Panadol Extra",
+    "activeIngredient": "Paracetamol",
+    "doseMgs": 500.0
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "3c4d5e6f-7890-12ab-cdef-121212121212",
+    "name": "Flector EP",
+    "activeIngredient": "Diclofenac epolamin",
+    "doseMgs": 50.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "3c4d5e6f-7890-12ab-cdef-131313131313",
+    "name": "Olfen",
+    "activeIngredient": "Diklofenak sodný",
+    "doseMgs": 100.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "3c4d5e6f-7890-12ab-cdef-141414141414",
+    "name": "Guajacuran",
+    "activeIngredient": "Guaifenesin",
+    "doseMgs": 200.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "3c4d5e6f-7890-12ab-cdef-151515151515",
+    "name": "ACC Long",
+    "activeIngredient": "Acetylcystein",
+    "doseMgs": 600.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "3c4d5e6f-7890-12ab-cdef-161616161616",
+    "name": "Mucosolvan",
+    "activeIngredient": "Ambroxol-hydrochlorid",
+    "doseMgs": 30.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "3c4d5e6f-7890-12ab-cdef-171717171717",
+    "name": "Stoptussin",
+    "activeIngredient": "Butamirat-citrát",
+    "doseMgs": 4.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "3c4d5e6f-7890-12ab-cdef-181818181818",
+    "name": "Olynth",
+    "activeIngredient": "Xylometazolin-hydrochlorid",
+    "doseMgs": 0.5
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "3c4d5e6f-7890-12ab-cdef-191919191919",
+    "name": "Nasivin",
+    "activeIngredient": "Oxymetazolin-hydrochlorid",
+    "doseMgs": 0.25
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "4d5e6f7a-8901-23ab-cdef-202020202020",
+    "name": "Sanorin",
+    "activeIngredient": "Tetrizolin-hydrochlorid",
+    "doseMgs": 0.5
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "4d5e6f7a-8901-23ab-cdef-212121212121",
+    "name": "Tantum Verde",
+    "activeIngredient": "Benzydamin-hydrochlorid",
+    "doseMgs": 3.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "4d5e6f7a-8901-23ab-cdef-222222222222",
+    "name": "Strepsils",
+    "activeIngredient": "Amylmetakresol",
+    "doseMgs": 0.6
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "4d5e6f7a-8901-23ab-cdef-232323232323",
+    "name": "Ibalgin Duo",
+    "activeIngredient": "Ibuprofen / L-theanin",
+    "doseMgs": 400.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "4d5e6f7a-8901-23ab-cdef-242424242424",
+    "name": "Zyrtec",
+    "activeIngredient": "Cetirizin-dihydrochlorid",
+    "doseMgs": 10.0
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "4d5e6f7a-8901-23ab-cdef-252525252525",
+    "name": "Aerius",
+    "activeIngredient": "Desloratadin",
+    "doseMgs": 5.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "4d5e6f7a-8901-23ab-cdef-262626262626",
+    "name": "Xyzal",
+    "activeIngredient": "Levocetirizin-dihydrochlorid",
+    "doseMgs": 5.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "4d5e6f7a-8901-23ab-cdef-272727272727",
+    "name": "Zolpidem Mylan",
+    "activeIngredient": "Zolpidem-tartrát",
+    "doseMgs": 10.0,
+    "maxPackagesPerPrescription": 1
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "4d5e6f7a-8901-23ab-cdef-282828282828",
+    "name": "Stilnox",
+    "activeIngredient": "Zolpidem-tartrát",
+    "doseMgs": 10.0,
+    "maxPackagesPerPrescription": 1
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "4d5e6f7a-8901-23ab-cdef-292929292929",
+    "name": "Lexaurin",
+    "activeIngredient": "Bromazepam",
+    "doseMgs": 3.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "5e6f7a8b-9012-34ab-cdef-303030303030",
+    "name": "Neurol",
+    "activeIngredient": "Alprazolam",
+    "doseMgs": 0.5,
+    "maxPackagesPerPrescription": 1
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "5e6f7a8b-9012-34ab-cdef-313131313131",
+    "name": "Xanax",
+    "activeIngredient": "Alprazolam",
+    "doseMgs": 1.0,
+    "maxPackagesPerPrescription": 1
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "5e6f7a8b-9012-34ab-cdef-323232323232",
+    "name": "Rivotril",
+    "activeIngredient": "Klonazepam",
+    "doseMgs": 2.0,
+    "maxPackagesPerPrescription": 1
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "5e6f7a8b-9012-34ab-cdef-333333333334",
+    "name": "Citalec",
+    "activeIngredient": "Citalopram",
+    "doseMgs": 20.0,
+    "maxPackagesPerPrescription": 3
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "5e6f7a8b-9012-34ab-cdef-343434343434",
+    "name": "Asentra",
+    "activeIngredient": "Sertralin",
+    "doseMgs": 50.0,
+    "maxPackagesPerPrescription": 3
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "5e6f7a8b-9012-34ab-cdef-353535353535",
+    "name": "Zoloft",
+    "activeIngredient": "Sertralin",
+    "doseMgs": 50.0,
+    "maxPackagesPerPrescription": 3
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "5e6f7a8b-9012-34ab-cdef-363636363636",
+    "name": "Trittico AC",
+    "activeIngredient": "Trazodon-hydrochlorid",
+    "doseMgs": 75.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "5e6f7a8b-9012-34ab-cdef-373737373737",
+    "name": "Valium",
+    "activeIngredient": "Diazepam",
+    "doseMgs": 5.0,
+    "maxPackagesPerPrescription": 2
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "5e6f7a8b-9012-34ab-cdef-383838383838",
+    "name": "Magne B6",
+    "activeIngredient": "Laktát hořečnatý / Pyridoxin",
+    "doseMgs": 470.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "5e6f7a8b-9012-34ab-cdef-393939393939",
+    "name": "Benadryl",
+    "activeIngredient": "Difenhydramin",
+    "doseMgs": 25.0
+  },
+  {
+    "prescriptionOnly": "false",
+    "id": "6f7a8b9c-0123-45ab-cdef-404040404040",
+    "name": "Frontpro",
+    "activeIngredient": "Afoxolaner",
+    "doseMgs": 28.3
+  },
+  {
+    "prescriptionOnly": "true",
+    "id": "6f7a8b9c-0123-45ab-cdef-414141414141",
+    "name": "Milurit 100",
+    "activeIngredient": "Allopurinol",
+    "doseMgs": 100.0,
+    "maxPackagesPerPrescription": 2
+  }
+]

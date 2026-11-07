@@ -19,16 +19,14 @@ public final class SceneSwitcher {
     private static int HEIGHT;
 
     private static final int menuWIDTH=300;
-    private static final int menuHEIGHT=250;
-
-    private SceneSwitcher() {}
+    private static final int menuHEIGHT=300;
 
     /**
      * @param event        událost vyvolaná tlačítkem (slouží k nalezení okna)
      * @param fxmlFileName název FXML souboru ve stejném balíku v resources
      */
     public static void switchTo(ActionEvent event, String fxmlFileName) {
-        switchTo(event,fxmlFileName,1240,500);
+        switchTo(event,fxmlFileName,1240,650);
     }
 
     public static void switchTo(ActionEvent event, String fxmlFileName, int width, int height ) {

@@ -1,0 +1,11 @@
+Lékárenská databáze
+
+Program funguje jako databáze léků a lékárenských poboček.
+Program nyní umožňuje přidávat a odebírat léčiva se zvolenými vlastnostmi.
+V programu bude možné vést evidenci lékáren, každé lékárně bude následně možno přiřazovat a odebírat položky na sklad přímo z databáze léků.
+Program bude také udržovat ke každé položce aktuální stav na skladu, uživatel bude moci u každé pobočky tyto počty upravovat
+Další funkcí programu bude také chytré vyhledávání v databázi uložených léčiv a poboček.
+Data programu se automaticky načtou při spuštění a uloží při ukončení, tudíž stav dat je v různých "sessions" zachován.
+
+Tato aplikace má teoretické využití např. pro řetězec lékáren, kdy je potřeba evidovat prodávaná léčiva a jejich stavy na pobočkách.
+

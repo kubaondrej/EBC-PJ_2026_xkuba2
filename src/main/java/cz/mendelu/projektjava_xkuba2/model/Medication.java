@@ -54,6 +54,8 @@ public abstract class Medication {
         return activeIngredient;
     }
 
+
+
     public float getDoseMgs() {
         return doseMgs;
     }
@@ -61,7 +63,8 @@ public abstract class Medication {
     public abstract String getDispensingInfo();
     @JsonIgnore
     public abstract boolean isPrescriptionRequired();
-
+    @JsonIgnore
+    public int getMaxPackages() { return 0; }
     @Override
     public String toString() { return "Lék s názvem" + ' ' +name + ','+' ' + "s aktivní látkou" + ' ' + activeIngredient + ' ' + "v obsahu" + ' ' +doseMgs + "mg." + ' '+ getDispensingInfo() + '.';}
 }

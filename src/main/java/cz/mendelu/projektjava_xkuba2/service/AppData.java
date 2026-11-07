@@ -32,7 +32,7 @@ public final class AppData {
         try {
 
             medications = storage.loadList(medicationsFile, Medication.class);
-            LoggingService.log(medications.size()+ ' ' + "POLOŽEK LEKU"+"načteno");
+            LoggingService.log(Integer.toString(medications.size()) + " POLOŽEK LEKU "+"načteno");
         } catch (IOException e) {
             System.err.println("Chyba při načítání: " + e.getMessage());
         }

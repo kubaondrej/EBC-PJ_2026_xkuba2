@@ -5,3 +5,16 @@
 .stat_value{
     -fx-font-size: 18px;
 }
+
+.error_label{
+    -fx-font-size: 12px;
+    -fx-background-color: #ff5858;
+    -fx-text-alignment: CENTER;
+    -fx-padding: 1px 50px 1px 50px;
+    -fx-font-weight: bold;
+}
+
+.menu_button{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
