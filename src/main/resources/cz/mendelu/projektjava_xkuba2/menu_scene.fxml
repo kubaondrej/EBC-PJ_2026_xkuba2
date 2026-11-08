@@ -19,9 +19,9 @@
 
 
 
-    <Button text="DATABÁZE LÉKŮ" prefWidth="1000" prefHeight="230" onAction="#switchToMedDatabase" styleClass="menu_button"  style="-fx-background-color:#58ff5b;"/>
-    <Button text="SEZNAM LÉKÁREN" prefWidth="1000" prefHeight="230" onAction="#SwitchToPharmDatabase" styleClass="menu_button" style="-fx-background-color:#75c6ff;"/>
-    <Button text="STATISTIKY" prefWidth="1000" prefHeight="150" onAction="#SwitchToStatistics" styleClass="menu_button" style="-fx-background-color:#faff5e;"/>
+    <Button text="DATABÁZE LÉKŮ - PLNĚ FUNKČNÍ" prefWidth="1000" prefHeight="230" onAction="#switchToMedDatabase" styleClass="menu_button"  style="-fx-background-color:#58ff5b;"/>
+    <Button text="SEZNAM LÉKÁREN - FUNKČNÍ, ZATÍM NEDOKONČENO" prefWidth="1000" prefHeight="230" onAction="#SwitchToPharmDatabase" styleClass="menu_button" style="-fx-background-color:#75c6ff;"/>
+    <Button text="STATISTIKY - FUNKČNÍ, ZATÍM NEDOKONČENO" prefWidth="1000" prefHeight="150" onAction="#SwitchToStatistics" styleClass="menu_button" style="-fx-background-color:#faff5e;"/>
     <Button text="KONEC" prefWidth="1000" prefHeight="150" onAction="#quit" styleClass="menu_button" style="-fx-background-color:salmon;"/>
 
 

@@ -5,18 +5,16 @@ import cz.mendelu.projektjava_xkuba2.service.AppData;
 import cz.mendelu.projektjava_xkuba2.service.LoggingService;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-public class MedicationTableController {
+public class MedicationsTableController extends TableController<Medication> {
 
-    @FXML private TableView<Medication> tableMeds;
+    @FXML private TableView<Medication> medicationsTable;
+
     @FXML private TableColumn<Medication, String> colId;
     @FXML private TableColumn<Medication, String> colName;
     @FXML private TableColumn<Medication, String> colActiveIngredient;
@@ -24,21 +22,15 @@ public class MedicationTableController {
     @FXML private TableColumn<Medication, String> colIsPrescriptionOnly;
     @FXML private TableColumn<Medication, String> colMaxPackages;
 
-    //vyhledavani
-    @FXML
-    private TextField txtSearch;
-    @FXML
-    private Label lblMedInfo;
+    //vyhledavani pro leky
     @FXML
     private Label lblSearchAttribute;
     @FXML
     private CheckBox searchByActiveIngredientChbx;
 
-    @FXML
-    private Label entriesCountLabel;
-
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize()
+    {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colActiveIngredient.setCellValueFactory(new PropertyValueFactory<>("activeIngredient"));
@@ -48,35 +40,32 @@ public class MedicationTableController {
         return new SimpleStringProperty(max > 0 ? String.valueOf(max) : "-");});
         loadDatabaseData();
     }
-
-    @FXML
-    public void loadDatabaseData()
+    @Override
+    public  void loadDatabaseData()
     {
-        TableHelper.loadDataIntoTable(tableMeds, AppData.getMedications());
+        TableHelper.loadDataIntoTable(medicationsTable, AppData.getMedications());
         updateTableCountLabel();
     }
-    @FXML
-    public void loadDatabaseData(List<Medication> data)
+    @Override
+    public  void loadDatabaseData(List<Medication> data)
     {
-        TableHelper.loadDataIntoTable(tableMeds, data);
+        TableHelper.loadDataIntoTable(medicationsTable, data);
         updateTableCountLabel();
     }
-    @FXML
+    @Override
     public Medication getSelectedEntry()
     {
-        return tableMeds.getSelectionModel().getSelectedItem();
+        return medicationsTable.getSelectionModel().getSelectedItem();
     }
 
-    @FXML
-    public ReadOnlyObjectProperty<Medication> selectedMedicationProperty()
+    @Override
+    public ReadOnlyObjectProperty<Medication> selectedEntryProperty()
     {
-        return tableMeds.getSelectionModel().selectedItemProperty();
+        return medicationsTable.getSelectionModel().selectedItemProperty();
     }
 
-    @FXML
-    private void searchByActiveIngredientChbxAction()
+    @FXML public void medSearchAttributeChbxChanged()
     {
-
         //VYHLEDAVAME POMOCI AKTIVNI PRISADY
         if (searchByActiveIngredientChbx.isSelected())
         {
@@ -99,9 +88,21 @@ public class MedicationTableController {
             searchMedication();
         }
     }
-
-    @FXML
-    private void searchMedication()
+    @Override
+    public void updateTableCountLabel()
+    {
+        if(TableHelper.checkIfEmpty(medicationsTable))
+        {
+            entriesCountLabel.getStyleClass().setAll("error_label");
+            entriesCountLabel.setText("NENALEZENA ŽÁDNÁ DATA");
+        }
+        else
+        {
+            entriesCountLabel.getStyleClass().setAll("okay_label");
+            entriesCountLabel.setText("NALEZENO" + ' ' + Integer.toString(medicationsTable.getItems().size()) + ' ' + "ZÁPISŮ");
+        }
+    }
+    public void searchMedication()
     {
         if(!txtSearch.getText().isEmpty()) {
             List<Medication> searchResults = new ArrayList<>();
@@ -126,30 +127,8 @@ public class MedicationTableController {
         {
             loadDatabaseData();
         }
-
         updateTableCountLabel();
     }
-
-    private void updateTableCountLabel()
-    {
-        if(TableHelper.checkIfEmpty(tableMeds))
-        {
-            entriesCountLabel.getStyleClass().setAll("error_label");
-            entriesCountLabel.setText("NENALEZENA ŽÁDNÁ DATA");
-        }
-        else
-        {
-            entriesCountLabel.getStyleClass().setAll("okay_label");
-            entriesCountLabel.setText("NALEZENO" + ' ' + Integer.toString(tableMeds.getItems().size()) + ' ' + "ZÁPISŮ");
-        }
-    }
-    @FXML
-    private void resetSearchFilter()
-    {
-        txtSearch.setText("");
-        loadDatabaseData();
-    }
-
 
 
 }

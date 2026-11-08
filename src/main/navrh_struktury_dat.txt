@@ -1,0 +1,41 @@
+LÉK - medications.json
+
+Lék má dva typy: na předpis a volně prodejný. Typ určje pole
+prescriptionOnly.
+Číslo maxPackagesPerPrescription mají jen léky na předpis.
+Pole: prescriptionOnly, id, name, activeIngredient, doseMgs,
+      maxPackagesPerPrescription
+
+PŘÍKLAD:
+  {
+    "prescriptionOnly" : "true",
+    "id" : "5e6f7a8b-9012-34ab-cdef-373737373737",
+    "name" : "Valium",
+    "activeIngredient" : "Diazepam",
+    "doseMgs" : 5.0,
+    "maxPackagesPerPrescription" : 2
+  }
+
+LÉKÁRNA - pharmacies.json
+Lékárna má název adresu a sklad. Sklad je seznam položek, kde každá obsahuje jen id léku a počet kusů.
+
+Pole: name, streetName, streetNumber, postcode, city,
+      inventory (seznam: id, amount)
+
+PŘ9KLAD:
+  {
+    "name" : "Apatyka Ondřej",
+    "streetName" : "Oderská",
+    "streetNumber" : "205/7",
+    "postcode" : "625 00",
+    "city" : "Brno",
+    "inventory" : [ {
+      "id" : "5e6f7a8b-9012-34ab-cdef-393939393939",
+      "amount" : 5
+    } ]
+  }
+VZTAH MEZI SOUBORY
+
+Sklad lékárny odkazuje na léky jen přes id, celé léky se v něm neopakují.
+Název a dávka léku se při zobrazení dohledají v medications.jsonpodle id.
+Díky tomu se data neduplikují.

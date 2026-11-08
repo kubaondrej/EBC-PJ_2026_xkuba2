@@ -13,7 +13,7 @@ public class MedicationsController {
 
 //LEKY
     @FXML
-    private MedicationTableController medTableController;
+    private MedicationsTableController medTableController;
     @FXML
     private Button backToMenuButton;
 
@@ -37,8 +37,8 @@ public class MedicationsController {
 
     @FXML
     public void initialize() {
-        LoggingService.log("INITIALIZACE pharmacies_scene.fxml");
-        medTableController.selectedMedicationProperty().addListener((obs, oldMed, newMed) -> showMedicationInfo());
+        LoggingService.log("INICIALIZACE medication_scene.fxml");
+        medTableController.selectedEntryProperty().addListener((obs, oldMed, newMed) -> showMedicationInfo());
 
     }
 

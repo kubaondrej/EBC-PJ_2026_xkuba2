@@ -18,7 +18,7 @@ public final class SceneSwitcher {
     private static int WIDTH;
     private static int HEIGHT;
 
-    private static final int menuWIDTH=300;
+    private static final int menuWIDTH=500;
     private static final int menuHEIGHT=300;
 
     /**
