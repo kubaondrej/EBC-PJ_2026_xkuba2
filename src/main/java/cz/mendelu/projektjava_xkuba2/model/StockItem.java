@@ -6,10 +6,11 @@ public class StockItem {
     private String id;
     int amount;
 
-    public StockItem(String id, int ammount) {
+    public StockItem(String id, int amount) {
         this.id=id;
-        this.amount = ammount;
+        this.amount = amount;
     }
+    public StockItem() {}
 
     public String getId() {
         return id;
@@ -18,10 +19,7 @@ public class StockItem {
     public int getAmount() {
         return amount;
     }
-    //nejspíš nebude potřeba
-//    public void setMedication(Medication medication) {
-//        this.medication = medication;
-//    }
+
 
     public void setAmmount(int ammount) {
         this.amount = ammount;

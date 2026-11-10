@@ -11,21 +11,20 @@ public abstract class TableController<T> {
     //vyhledavani
     @FXML
     public TextField txtSearch;
-
-    @FXML
-    public Label entriesCountLabel;
+    @FXML public Label lblSearchAttribute;
+    @FXML public Label entriesCountLabel;
 
     public void initialize(){}
     public void loadDatabaseData() {}
-    public void loadDatabaseData(List<T> data){}
-    public T getSelectedEntry()
+//    public void loadDatabaseData(List<T> data){}
+    public T getMainTableSelectedEntry()
     {
         return table.getSelectionModel().getSelectedItem();
     }
     public ReadOnlyObjectProperty<T> selectedEntryProperty() {
         return table.getSelectionModel().selectedItemProperty();
     }
-    public abstract void updateTableCountLabel();
+    public abstract void updateMainTableCountLabel();
     @FXML
     public void resetSearchFilter()
     {

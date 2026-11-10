@@ -10,15 +10,29 @@
     -fx-font-size: 12px;
     -fx-background-color: #ff5858;
     -fx-text-alignment: CENTER;
-    -fx-padding: 1px 20px 1px 20px;
+    -fx-alignment: CENTER;
+    -fx-padding: 0px 20px 0px 20px;
     -fx-font-weight: bold;
+    -fx-max-width: Infinity;
+
 }
 
 .okay_label{
     -fx-font-size: 12px;
     -fx-background-color: #58ff5b;
     -fx-text-alignment: CENTER;
-    -fx-padding: 1px 20px 1px 20px;
+    -fx-alignment: CENTER;
+    -fx-padding: 0px 20px 0px 20px;
+    -fx-font-weight: bold;
+    -fx-max-width: Infinity;
+
+}
+
+.blue_label{
+    -fx-font-size: 12px;
+    -fx-background-color: #59c5ff;
+    -fx-text-alignment: CENTER;
+    -fx-padding: 1px 1px 1px 1px;
     -fx-font-weight: bold;
 }
 

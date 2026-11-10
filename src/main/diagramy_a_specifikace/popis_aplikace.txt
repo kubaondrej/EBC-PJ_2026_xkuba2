@@ -9,3 +9,4 @@ Data programu se automaticky načtou při spuštění a uloží při ukončení,
 
 Tato aplikace má teoretické využití např. pro řetězec lékáren, kdy je potřeba evidovat prodávaná léčiva a jejich stavy na pobočkách.
 
+Github repo: https://github.com/kubaondrej/EBC-PJ_2026_xkuba2

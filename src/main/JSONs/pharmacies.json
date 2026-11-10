@@ -1,10 +1,402 @@
 [ {
+  "name" : "Apatyka Slunce",
+  "streetName" : "Zelný trh",
+  "streetNumber" : "141/16",
+  "postcode" : "613 00",
+  "city" : "Brno",
+  "inventory" : [ {
+    "id" : "1a2b3c4d-5678-90ab-cdef-111111111111",
+    "amount" : 1
+  }, {
+    "id" : "4d5e6f7a-8901-23ab-cdef-272727272727",
+    "amount" : 1
+  }, {
+    "id" : "4d5e6f7a-8901-23ab-cdef-242424242424",
+    "amount" : 1
+  }, {
+    "id" : "5e6f7a8b-9012-34ab-cdef-373737373737",
+    "amount" : 1
+  }, {
+    "id" : "6f7a8b9c-0123-45ab-cdef-414141414141",
+    "amount" : 1
+  } ]
+}, {
+  "name" : "Zdravíčko Morava",
+  "streetName" : "Česká",
+  "streetNumber" : "280/6",
+  "postcode" : "619 00",
+  "city" : "Brno",
+  "inventory" : [ {
+    "id" : "1a2b3c4d-5678-90ab-cdef-777777777777",
+    "amount" : 1
+  }, {
+    "id" : "1a2b3c4d-5678-90ab-cdef-666666666666",
+    "amount" : 1
+  }, {
+    "id" : "1a2b3c4d-5678-90ab-cdef-444444444444",
+    "amount" : 1
+  }, {
+    "id" : "1a2b3c4d-5678-90ab-cdef-222222222222",
+    "amount" : 1
+  } ]
+}, {
+  "name" : "Medica Slunce",
+  "streetName" : "Masarykova",
+  "streetNumber" : "48/14",
+  "postcode" : "613 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Omnia Čtyřlístku",
+  "streetName" : "Masarykova",
+  "streetNumber" : "288/13",
+  "postcode" : "625 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Omnia Anděla",
+  "streetName" : "Botanická",
+  "streetNumber" : "230/18",
+  "postcode" : "602 00",
+  "city" : "Brno",
+  "inventory" : [ {
+    "id" : "1a2b3c4d-5678-90ab-cdef-444444444444",
+    "amount" : 1
+  } ]
+}, {
+  "name" : "Zdravíčko Morava",
+  "streetName" : "Svatopetrská",
+  "streetNumber" : "175/18",
+  "postcode" : "612 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Pharm Svratka",
+  "streetName" : "Joštova",
+  "streetNumber" : "53/6",
+  "postcode" : "616 00",
+  "city" : "Brno",
+  "inventory" : [ {
+    "id" : "1a2b3c4d-5678-90ab-cdef-555555555555",
+    "amount" : 7
+  } ]
+}, {
+  "name" : "Apatyka Fontána",
+  "streetName" : "Štefánikova",
+  "streetNumber" : "136/3",
+  "postcode" : "617 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Omnia Hvězda",
+  "streetName" : "Plotní",
+  "streetNumber" : "41/19",
+  "postcode" : "625 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Centrum Měnínské brány",
+  "streetName" : "Štefánikova",
+  "streetNumber" : "296/13",
+  "postcode" : "603 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Lékárna U Pelikána",
+  "streetName" : "Botanická",
+  "streetNumber" : "149/6",
+  "postcode" : "613 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Apatyka Anděla",
+  "streetName" : "Dukelská třída",
+  "streetNumber" : "233/24",
+  "postcode" : "612 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Vita Fontána",
+  "streetName" : "Milady Horákové",
+  "streetNumber" : "137/5",
+  "postcode" : "619 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Zdravíčko Kříže",
+  "streetName" : "Zelný trh",
+  "streetNumber" : "126/11",
+  "postcode" : "617 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Medica Zlaté jablko",
+  "streetName" : "Novobranská",
+  "streetNumber" : "286/15",
+  "postcode" : "625 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Vita Špilberk",
+  "streetName" : "Kounicova",
+  "streetNumber" : "118/3",
+  "postcode" : "615 00",
+  "city" : "Brno",
+  "inventory" : [ {
+    "id" : "6f7a8b9c-0123-45ab-cdef-404040404040",
+    "amount" : 1
+  } ]
+}, {
+  "name" : "Medica Zlaté jablko",
+  "streetName" : "Pekařská",
+  "streetNumber" : "109/21",
+  "postcode" : "613 00",
+  "city" : "Brno",
+  "inventory" : [ {
+    "id" : "5e6f7a8b-9012-34ab-cdef-393939393939",
+    "amount" : 1
+  } ]
+}, {
+  "name" : "Sanitas Anděla",
+  "streetName" : "Novobranská",
+  "streetNumber" : "235/10",
+  "postcode" : "614 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Zdravíčko Svatého Rocha",
+  "streetName" : "Zelný trh",
+  "streetNumber" : "288/35",
+  "postcode" : "614 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Centrum Anděla",
+  "streetName" : "Škroupova",
+  "streetNumber" : "205/24",
+  "postcode" : "613 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Zdravíčko Kříže",
+  "streetName" : "Gajdošova",
+  "streetNumber" : "47/4",
+  "postcode" : "603 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Zdravíčko Pelikána",
+  "streetName" : "Lidická",
+  "streetNumber" : "217/5",
+  "postcode" : "616 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Medica Čtyřlístku",
+  "streetName" : "Táborská",
+  "streetNumber" : "271/17",
+  "postcode" : "618 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Lékárna U Pelikána",
+  "streetName" : "Zelný trh",
+  "streetNumber" : "59/35",
+  "postcode" : "614 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Vita Hvězda",
+  "streetName" : "Žerotínovo náměstí",
+  "streetNumber" : "223/11",
+  "postcode" : "617 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Lékárna U Morava",
+  "streetName" : "Zelný trh",
+  "streetNumber" : "135/33",
+  "postcode" : "612 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Omnia Měnínské brány",
+  "streetName" : "Česká",
+  "streetNumber" : "153/33",
+  "postcode" : "619 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Pharm Bílého lva",
+  "streetName" : "Štefánikova",
+  "streetNumber" : "83/35",
+  "postcode" : "618 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Lékárna U Čtyřlístku",
+  "streetName" : "Joštova",
+  "streetNumber" : "251/2",
+  "postcode" : "603 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Vita Měnínské brány",
+  "streetName" : "Žerotínovo náměstí",
+  "streetNumber" : "123/4",
+  "postcode" : "613 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Centrum Hvězda",
+  "streetName" : "Pekařská",
+  "streetNumber" : "249/5",
+  "postcode" : "618 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Zdravíčko Bílého lva",
+  "streetName" : "Starobrněnská",
+  "streetNumber" : "244/11",
+  "postcode" : "614 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Omnia Špilberk",
+  "streetName" : "Záhřebská",
+  "streetNumber" : "217/14",
+  "postcode" : "618 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Pharm Morava",
+  "streetName" : "Žerotínovo náměstí",
+  "streetNumber" : "205/24",
+  "postcode" : "617 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Omnia Růže",
+  "streetName" : "Česká",
+  "streetNumber" : "127/15",
+  "postcode" : "603 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Vita Slunce",
+  "streetName" : "Škroupova",
+  "streetNumber" : "284/15",
+  "postcode" : "619 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Pharm Slunce",
+  "streetName" : "Pekařská",
+  "streetNumber" : "31/15",
+  "postcode" : "603 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Lékárna U Špilberk",
+  "streetName" : "Joštova",
+  "streetNumber" : "37/33",
+  "postcode" : "613 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Léko Pelikána",
+  "streetName" : "Gajdošova",
+  "streetNumber" : "110/35",
+  "postcode" : "612 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Centrum Čtyřlístku",
+  "streetName" : "Gajdošova",
+  "streetNumber" : "125/31",
+  "postcode" : "616 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Pharm Hvězda",
+  "streetName" : "Česká",
+  "streetNumber" : "221/23",
+  "postcode" : "616 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Medica Růže",
+  "streetName" : "Zelný trh",
+  "streetNumber" : "28/7",
+  "postcode" : "602 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Medica Morava",
+  "streetName" : "Joštova",
+  "streetNumber" : "56/16",
+  "postcode" : "613 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Pharm Kříže",
+  "streetName" : "Táborská",
+  "streetNumber" : "72/28",
+  "postcode" : "612 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Léko Růže",
+  "streetName" : "Botanická",
+  "streetNumber" : "39/29",
+  "postcode" : "618 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Apatyka Slunce",
+  "streetName" : "Novobranská",
+  "streetNumber" : "277/1",
+  "postcode" : "603 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Pharm Bílého lva",
+  "streetName" : "Svatopetrská",
+  "streetNumber" : "249/31",
+  "postcode" : "613 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Medica Měnínské brány",
+  "streetName" : "Kounicova",
+  "streetNumber" : "85/25",
+  "postcode" : "602 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Medica Zlaté jablko",
+  "streetName" : "Táborská",
+  "streetNumber" : "147/28",
+  "postcode" : "618 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
+  "name" : "Sanitas Bílého lva",
+  "streetName" : "Milady Horákové",
+  "streetNumber" : "152/14",
+  "postcode" : "602 00",
+  "city" : "Brno",
+  "inventory" : [ ]
+}, {
   "name" : "Apatyka Ondřej",
   "streetName" : "Oderská",
   "streetNumber" : "205/7",
   "postcode" : "625 00",
   "city" : "Brno",
-  "inventory" : [ ]
+  "inventory" : [ {
+    "id" : "5e6f7a8b-9012-34ab-cdef-393939393939",
+    "amount" : 1
+  } ]
 }, {
   "name" : "Jonášovo lékovinové doupě",
   "streetName" : "Jugoslávská",

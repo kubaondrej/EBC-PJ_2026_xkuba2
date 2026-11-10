@@ -22,7 +22,7 @@ Lékárna má název adresu a sklad. Sklad je seznam položek, kde každá obsah
 Pole: name, streetName, streetNumber, postcode, city,
       inventory (seznam: id, amount)
 
-PŘ9KLAD:
+PŘÍKLAD:
   {
     "name" : "Apatyka Ondřej",
     "streetName" : "Oderská",
@@ -35,7 +35,6 @@ PŘ9KLAD:
     } ]
   }
 VZTAH MEZI SOUBORY
-
 Sklad lékárny odkazuje na léky jen přes id, celé léky se v něm neopakují.
 Název a dávka léku se při zobrazení dohledají v medications.jsonpodle id.
 Díky tomu se data neduplikují.

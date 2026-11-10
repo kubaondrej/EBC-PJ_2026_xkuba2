@@ -75,7 +75,7 @@ public class MedicationsController {
     @FXML
     private void removeMedicationFromDatabase()
     {
-        Medication selected = medTableController.getSelectedEntry();
+        Medication selected = medTableController.getMainTableSelectedEntry();
         if (selected == null) {
             return;
         }
@@ -103,7 +103,7 @@ public class MedicationsController {
     @FXML
     private void showMedicationInfo()
     {
-        Medication selected = medTableController.getSelectedEntry();
+        Medication selected = medTableController.getMainTableSelectedEntry();
         if (selected == null) {
             lblMedInfo.setText("-");
             return;

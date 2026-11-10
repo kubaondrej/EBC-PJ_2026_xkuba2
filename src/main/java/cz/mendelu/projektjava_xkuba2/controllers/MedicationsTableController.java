@@ -24,8 +24,6 @@ public class MedicationsTableController extends TableController<Medication> {
 
     //vyhledavani pro leky
     @FXML
-    private Label lblSearchAttribute;
-    @FXML
     private CheckBox searchByActiveIngredientChbx;
 
     @Override
@@ -40,20 +38,24 @@ public class MedicationsTableController extends TableController<Medication> {
         return new SimpleStringProperty(max > 0 ? String.valueOf(max) : "-");});
         loadDatabaseData();
     }
+
+    public void fillMedicationsTable(List<Medication> data)
+    {
+        TableHelper.loadDataIntoTable(medicationsTable, data);
+        updateMainTableCountLabel();
+    }
+
+
+
     @Override
     public  void loadDatabaseData()
     {
         TableHelper.loadDataIntoTable(medicationsTable, AppData.getMedications());
-        updateTableCountLabel();
+        updateMainTableCountLabel();
     }
+
     @Override
-    public  void loadDatabaseData(List<Medication> data)
-    {
-        TableHelper.loadDataIntoTable(medicationsTable, data);
-        updateTableCountLabel();
-    }
-    @Override
-    public Medication getSelectedEntry()
+    public Medication getMainTableSelectedEntry()
     {
         return medicationsTable.getSelectionModel().getSelectedItem();
     }
@@ -71,7 +73,6 @@ public class MedicationsTableController extends TableController<Medication> {
         {
             colActiveIngredient.getStyleClass().setAll("highlightedColumn");
             colName.getStyleClass().setAll("");
-            lblSearchAttribute.setText("Aktivní složka:");
             txtSearch.setPromptText("např. Alprazolam");
         }
         //VYHLEDAVAME POMOCI NAZVU
@@ -79,17 +80,14 @@ public class MedicationsTableController extends TableController<Medication> {
         {
             colActiveIngredient.getStyleClass().setAll("");
             colName.getStyleClass().setAll("highlightedColumn");
-            lblSearchAttribute.setText("Název:");
             txtSearch.setPromptText("např. Voltaren");
-
         }
-
         if(!txtSearch.getText().isEmpty()) {
             searchMedication();
         }
     }
     @Override
-    public void updateTableCountLabel()
+    public void updateMainTableCountLabel()
     {
         if(TableHelper.checkIfEmpty(medicationsTable))
         {
@@ -106,10 +104,11 @@ public class MedicationsTableController extends TableController<Medication> {
     {
         if(!txtSearch.getText().isEmpty()) {
             List<Medication> searchResults = new ArrayList<>();
-            LoggingService.log("HLEDÁM " + txtSearch.getText());
-            String currentMedValue;
+            LoggingService.log("HLEDÁM LÉK" + txtSearch.getText());
+            String currentMedValue; //AKTUALNI HODNOTA HLEDANEHO ATTRIBUTU AKTUALNIHO LEKU
             for (Medication m : AppData.getMedications()) {
-                if (searchByActiveIngredientChbx.isSelected()) {
+                if (searchByActiveIngredientChbx.isSelected())
+                {
                     currentMedValue = m.getActiveIngredient().substring(0, txtSearch.getText().length());
                 }
                 else
@@ -117,17 +116,16 @@ public class MedicationsTableController extends TableController<Medication> {
                     currentMedValue = m.getName().substring(0, txtSearch.getText().length());
                 }
                 if (currentMedValue.equalsIgnoreCase(txtSearch.getText())) {
-                    LoggingService.log("NALEZENO - " + m.getName());
+                    LoggingService.log("LÉK NALEZEN - " + m.getName());
                     searchResults.add(m);
                 }
             }
-            loadDatabaseData(searchResults);
+            fillMedicationsTable(searchResults);
         }
         else
         {
             loadDatabaseData();
         }
-        updateTableCountLabel();
     }
 
 

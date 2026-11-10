@@ -47,6 +47,14 @@ public class Pharmacy {
         return inventory;
     }
 
+    public void removeStockFromInventory(StockItem stockItem)
+    {
+        if(stockItem!=null)
+        {
+            inventory.remove(stockItem);
+        }
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -71,10 +79,6 @@ public class Pharmacy {
     {
         System.out.println("PŘIDÁVÁM" + ' ' + stockItem.getId() + ' ' + "V POČTU " + ' ' + stockItem.getAmount() + ' ' + "DO" + ' ' + this.toString());
         inventory.add(stockItem);
-    }
-    List<StockItem> getWarehouse()
-    {
-        return inventory;
     }
 
     public void printStockContents()

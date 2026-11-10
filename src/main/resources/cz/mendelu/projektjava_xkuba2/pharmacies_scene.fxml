@@ -6,8 +6,9 @@
 
 
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Spinner?>
 <VBox alignment="TOP_CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
       stylesheets="@style.css"
       fx:controller="cz.mendelu.projektjava_xkuba2.controllers.PharmaciesController">
@@ -15,26 +16,13 @@
         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0"/>
     </padding>
 
-    <Button onAction="#testPharmacies" text="PŘIDAT LÉKÁRNY"/>
-    <Button onAction="#addMedicationToStock" text="PŘIDAT STOCK NA SKLAD"/>
-    <fx:include source="pharmacies_table.fxml" VBox.vgrow="ALWAYS"/>
+    <HBox>
+        <fx:include fx:id="pharmTable" source="pharmacies_table.fxml" VBox.vgrow="ALWAYS" minWidth="1000"/>
+    </HBox>
     <Separator prefWidth="200.0" />
-    <VBox>
-        <fx:include source="medication_table.fxml" VBox.vgrow="ALWAYS"/>
-<!--        <TableView fx:id="inventoryTable">-->
-<!--            <columnResizePolicy>-->
-<!--                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN"/>-->
-<!--            </columnResizePolicy>-->
-<!--            <columns>-->
-<!--                <TableColumn fx:id="colId" text="ID" prefWidth="280.0"/>-->
-<!--                <TableColumn fx:id="colName" text="Název" prefWidth="280.0"/>-->
-<!--                <TableColumn fx:id="colDoseMgs" text="mg" prefWidth="280.0"/>-->
-<!--                <TableColumn fx:id="colCount" text="mg" prefWidth="280.0"/>-->
 
-<!--            </columns>-->
-<!--        </TableView>-->
-    </VBox>
-
+    <fx:include fx:id="medTable" source="medication_table.fxml" VBox.vgrow="ALWAYS"/>
+    <Button text="PŘIDAT NA POBOČKU" onAction="#addMedicationToStock"/>
     <Button prefWidth="100" text="ZPĚT" onAction="#backToMenu"/>
-
+    <Spinner fx:id="invCountSpinner" editable="true" prefWidth="100.0"/>
 </VBox>
