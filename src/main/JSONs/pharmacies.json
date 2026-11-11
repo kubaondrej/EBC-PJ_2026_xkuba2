@@ -18,7 +18,16 @@
     "amount" : 1
   }, {
     "id" : "6f7a8b9c-0123-45ab-cdef-414141414141",
+    "amount" : 4
+  }, {
+    "id" : "1a2b3c4d-5678-90ab-cdef-111111111111",
     "amount" : 1
+  }, {
+    "id" : "1a2b3c4d-5678-90ab-cdef-444444444444",
+    "amount" : 1
+  }, {
+    "id" : "2b3c4d5e-6789-01ab-cdef-050505050505",
+    "amount" : 9
   } ]
 }, {
   "name" : "Zdravíčko Morava",
@@ -31,10 +40,7 @@
     "amount" : 1
   }, {
     "id" : "1a2b3c4d-5678-90ab-cdef-666666666666",
-    "amount" : 1
-  }, {
-    "id" : "1a2b3c4d-5678-90ab-cdef-444444444444",
-    "amount" : 1
+    "amount" : 4
   }, {
     "id" : "1a2b3c4d-5678-90ab-cdef-222222222222",
     "amount" : 1
@@ -45,7 +51,10 @@
   "streetNumber" : "48/14",
   "postcode" : "613 00",
   "city" : "Brno",
-  "inventory" : [ ]
+  "inventory" : [ {
+    "id" : "1a2b3c4d-5678-90ab-cdef-333333333333",
+    "amount" : 5
+  } ]
 }, {
   "name" : "Omnia Čtyřlístku",
   "streetName" : "Masarykova",
@@ -61,6 +70,15 @@
   "city" : "Brno",
   "inventory" : [ {
     "id" : "1a2b3c4d-5678-90ab-cdef-444444444444",
+    "amount" : 1
+  }, {
+    "id" : "1a2b3c4d-5678-90ab-cdef-444444444444",
+    "amount" : 6
+  }, {
+    "id" : "1a2b3c4d-5678-90ab-cdef-333333333333",
+    "amount" : 1
+  }, {
+    "id" : "1a2b3c4d-5678-90ab-cdef-111111111111",
     "amount" : 1
   } ]
 }, {
@@ -386,7 +404,10 @@
   "streetNumber" : "152/14",
   "postcode" : "602 00",
   "city" : "Brno",
-  "inventory" : [ ]
+  "inventory" : [ {
+    "id" : "1a2b3c4d-5678-90ab-cdef-999999999999",
+    "amount" : 4
+  } ]
 }, {
   "name" : "Apatyka Ondřej",
   "streetName" : "Oderská",
@@ -395,7 +416,7 @@
   "city" : "Brno",
   "inventory" : [ {
     "id" : "5e6f7a8b-9012-34ab-cdef-393939393939",
-    "amount" : 1
+    "amount" : 6
   } ]
 }, {
   "name" : "Jonášovo lékovinové doupě",

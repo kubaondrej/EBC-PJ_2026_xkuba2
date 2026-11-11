@@ -22,7 +22,9 @@
     <Separator prefWidth="200.0" />
 
     <fx:include fx:id="medTable" source="medication_table.fxml" VBox.vgrow="ALWAYS"/>
-    <Button text="PŘIDAT NA POBOČKU" onAction="#addMedicationToStock"/>
+    <HBox alignment="CENTER" spacing="10">
+        <Button text="PŘIDAT NA POBOČKU" onAction="#addMedicationToStock"/>
+        <Spinner fx:id="invCountSpinner" editable="true" prefWidth="100.0"/>
+    </HBox>
     <Button prefWidth="100" text="ZPĚT" onAction="#backToMenu"/>
-    <Spinner fx:id="invCountSpinner" editable="true" prefWidth="100.0"/>
 </VBox>

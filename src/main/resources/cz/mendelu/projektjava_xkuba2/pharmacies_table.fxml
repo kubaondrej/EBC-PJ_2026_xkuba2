@@ -36,7 +36,7 @@
                 </columns>
             </TableView>
             <Label fx:id="entriesCountLabel" maxWidth="Infinity" alignment="CENTER"/>
-            <Pane minHeight="5.0" />
+            <Pane minHeight="10.0" />
             <Pane minHeight="25.0" />
             <Pane minHeight="25.0" />
 
@@ -57,9 +57,10 @@
             <Label fx:id="inventoryTableEntriesCountLabel" maxWidth="Infinity" alignment="CENTER"/>
             <Pane minHeight="5.0" />
 
-            <Button text="VYMAZAT POLOŽKU" onAction="#removeStockItem" maxWidth="Infinity"/>
-            <HBox >
-                <Button text="UPRAVIT POČET" onAction="#editStockCount" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button fx:id="deleteStockEntryButton" text="VYMAZAT POLOŽKU" onAction="#removeStockItem" maxWidth="Infinity"/>
+            <Pane minHeight="5.0" />
+            <HBox alignment="CENTER" spacing="10" maxWidth="Infinity">
+                <Button fx:id="editStockCountButton" text="UPRAVIT POČET" onAction="#editStockCount" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
                 <Spinner fx:id="invCountEditSpinner" editable="true" minWidth="20"/>
             </HBox>
         </VBox>

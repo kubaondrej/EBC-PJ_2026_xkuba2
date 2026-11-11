@@ -17,6 +17,7 @@ import java.util.List;
 
 public class PharmaciesTableController extends TableController<Pharmacy> {
 
+      //tabulka lékáren
       @FXML private TableView<Pharmacy> pharmaciesTable;
       @FXML private TableColumn<Pharmacy, String> colName;
       @FXML private TableColumn<Pharmacy, String> colStreetName;
@@ -24,6 +25,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
       @FXML private TableColumn<Pharmacy, String> colPostcode;
       @FXML private TableColumn<Pharmacy, String> colCity;
 
+      //tabulka skaldu lékárny
       @FXML private TableView<StockItem> inventoryTable;
       @FXML private TableColumn<StockItem, String> colStockId;
       @FXML private TableColumn<StockItem, String> colStockName;
@@ -31,6 +33,10 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
       @FXML private TableColumn<StockItem, String> colStockCount;
 
       @FXML public Label inventoryTableEntriesCountLabel;
+
+      //sprava položek skladu
+      @FXML private Button deleteStockEntryButton;
+      @FXML private Button editStockCountButton;
       @FXML private Spinner<Integer> invCountEditSpinner;
 
       //vyhledavani lekaren
@@ -41,12 +47,45 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             initializePharmTable();
             initializeInventoryTable();
 
+            updateStockButtons();
 
 
             this.selectedEntryProperty().addListener((obs, oldMed, newMed) -> pharmSelectionChanged());
+            inventoryTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> updateStockButtons());
+
             updateInventoryCountLabel();
             loadDatabaseData();
       }
+
+      private void updateStockButtons()
+      {
+            String selectedStockName;
+            float selectedStockDose;
+
+            if(inventoryTable.getSelectionModel().getSelectedItem()==null)
+            {
+                  deleteStockEntryButton.setDisable(true);
+                  deleteStockEntryButton.setText("VYMAZAT POLOŽKU");
+                  editStockCountButton.setDisable(true);
+            }
+            else
+            {
+                Medication medicationById = findMedicationById(inventoryTable.getSelectionModel().getSelectedItem().getId());
+                assert medicationById != null;
+                selectedStockName = medicationById.getName();
+                selectedStockDose = medicationById.getDoseMgs();
+                deleteStockEntryButton.setDisable(false);
+                deleteStockEntryButton.setText("VYMAZAT POLOŽKU" + ' ' + selectedStockName + ' ' + selectedStockDose);
+                editStockCountButton.setDisable(false);
+            }
+
+      }
+
+      public StockItem getInventoryTableSelectedEntry()
+      {
+            return inventoryTable .getSelectionModel().getSelectedItem();
+      }
+
       private void initializePharmTable()
       {
             colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -91,9 +130,8 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
                   target.setAmmount(invCountEditSpinner.getValue());
                   LoggingService.log("UPRAVEN POČET LÉKU" + ' ' + target.getId() + ' ' + "NA" + ' ' + target.getAmount());
                   AppData.save();
-                  initialize();
             }
-
+            fillInventoryTable();
       }
 
       @FXML public void removeStockItem()
@@ -117,19 +155,24 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
                   inventoryTableEntriesCountLabel.setText("NALEZENO" + ' ' + Integer.toString(inventoryTable.getItems().size()) + ' ' + "ZÁPISŮ");
             }
       }
+      public void inventorySelectionChanged()
+      {
+            updateStockButtons();
+      }
 
       public void pharmSelectionChanged()
       {
             Pharmacy selectedPharmacy = getMainTableSelectedEntry();
 
-            if (selectedPharmacy != null && selectedPharmacy.getInventory() != null) {
+            if (selectedPharmacy != null) {
                   LoggingService.log("NAČÍTÁM SKLAD PRO LÉKÁRNU - " + selectedPharmacy.getName());
-                  TableHelper.loadDataIntoTable(inventoryTable, selectedPharmacy.getInventory());
+                  fillInventoryTable(selectedPharmacy.getInventory());
 
-            } else {
-                  inventoryTable.getItems().clear();
+                  deleteStockEntryButton.setDisable(false);
+                  editStockCountButton.setDisable(false);
             }
-            updateInventoryCountLabel();
+            updateStockButtons();
+
       }
       public void searchPharmacy()
       {
@@ -166,18 +209,23 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             {
                   TableHelper.loadDataIntoTable(inventoryTable, getMainTableSelectedEntry().getInventory());
             }
+            inventoryTable.refresh();
             updateMainTableCountLabel();
       }
       public void fillInventoryTable()
       {
-            TableHelper.loadDataIntoTable(inventoryTable, Collections.emptyList());
             TableHelper.loadDataIntoTable(inventoryTable, getMainTableSelectedEntry().getInventory());
+            inventoryTable.refresh();
             updateInventoryCountLabel();
+
       }
       public void fillInventoryTable(List<StockItem> data)
       {
             TableHelper.loadDataIntoTable(inventoryTable, data);
+            inventoryTable.refresh();
             updateInventoryCountLabel();
+
+
       }
 
       public void fillPharmacyTable(List<Pharmacy> data)

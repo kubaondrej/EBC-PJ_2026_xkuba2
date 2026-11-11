@@ -25,9 +25,17 @@ public class PharmaciesController {
     public void initialize()
     {
         LoggingService.log("INICIALIZACE pharmacies_scene.fxml");
-        SpinnerValueFactory<Integer> valueFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
         invCountSpinner.setValueFactory(valueFactory);
+        medTableController.selectedEntryProperty().addListener((obs, oldMed, newMed) -> updateAddMedicationToInventoryButton());
+
+    }
+    private void updateAddMedicationToInventoryButton()
+    {
+        if (medTableController.getMainTableSelectedEntry()==null || pharmTableController.getMainTableSelectedEntry() == null);
+        {
+
+        }
     }
     @FXML private void addMedicationToStock()
     {
