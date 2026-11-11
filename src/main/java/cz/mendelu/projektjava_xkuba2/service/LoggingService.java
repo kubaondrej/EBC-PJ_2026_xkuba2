@@ -12,4 +12,13 @@ public final class LoggingService {
 
         System.out.println("[" + className + " - " + methodName + "] " + message);
     }
+    public static void log(String context,String message)
+    {
+        //predpokladam ze tohle preskoci tuhle aktualni metodu? Asi? TODO: Objasnit
+        StackWalker.StackFrame caller = StackWalker.getInstance().walk(s -> s.skip(1).findFirst()).orElse(null);
+        String methodName = (caller != null) ? caller.getMethodName() : "neznama_trida";
+        String className = (caller != null) ? caller.getClassName() : "neznama_trida";
+
+        System.out.println("|" + className + " - " + methodName + "| " + "[" + context + "] " + message);
+    }
 }

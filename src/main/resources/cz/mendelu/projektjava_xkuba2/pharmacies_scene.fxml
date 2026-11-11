@@ -9,6 +9,7 @@
 
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
 <VBox alignment="TOP_CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
       stylesheets="@style.css"
       fx:controller="cz.mendelu.projektjava_xkuba2.controllers.PharmaciesController">
@@ -19,6 +20,8 @@
     <HBox>
         <fx:include fx:id="pharmTable" source="pharmacies_table.fxml" VBox.vgrow="ALWAYS" minWidth="1000"/>
     </HBox>
+
+
     <Separator prefWidth="200.0" />
 
     <fx:include fx:id="medTable" source="medication_table.fxml" VBox.vgrow="ALWAYS"/>
@@ -27,4 +30,5 @@
         <Spinner fx:id="invCountSpinner" editable="true" prefWidth="100.0"/>
     </HBox>
     <Button prefWidth="100" text="ZPĚT" onAction="#backToMenu"/>
+    <Button text="DEBUG: UKA VYSKOVEJ ROZDIL TABULEK" onAction="#printTableHeightDifference"/>
 </VBox>

@@ -26,7 +26,7 @@ public final class SceneSwitcher {
      * @param fxmlFileName název FXML souboru ve stejném balíku v resources
      */
     public static void switchTo(ActionEvent event, String fxmlFileName) {
-        switchTo(event,fxmlFileName,1240,650);
+        switchTo(event,fxmlFileName,1240,800);
     }
 
     public static void switchTo(ActionEvent event, String fxmlFileName, int width, int height ) {

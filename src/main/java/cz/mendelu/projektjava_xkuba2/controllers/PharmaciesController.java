@@ -37,6 +37,8 @@ public class PharmaciesController {
 
         }
     }
+
+
     @FXML private void addMedicationToStock()
     {
         String medIdToAdd=medTableController.getMainTableSelectedEntry().getId();
@@ -69,6 +71,11 @@ public class PharmaciesController {
         }
         pharmTableController.fillInventoryTable();
         AppData.save();
+    }
+
+    @FXML private void printTableHeightDifference()
+    {
+        LoggingService.log("UI DEBUG INFO", Double.toString(pharmTableController.getTablesHeightDifference()));
     }
 
     @FXML
