@@ -1,4 +1,4 @@
-package cz.mendelu.projektjava_xkuba2.controllers;
+package cz.mendelu.projektjava_xkuba2.ui_controllers;
 
 import cz.mendelu.projektjava_xkuba2.model.Medication;
 import cz.mendelu.projektjava_xkuba2.model.Pharmacy;
@@ -35,7 +35,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
       @FXML public Label inventoryTableEntriesCountLabel;
 
       //sprava položek skladu
-      @FXML private Button deleteStockEntryButton;
+      @FXML private Button removeInventoryEntryButton;
       @FXML private Button editStockCountButton;
       @FXML private Spinner<Integer> invCountEditSpinner;
 
@@ -48,20 +48,22 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
       @FXML private TextField pharmStreetNumberTxt;
       @FXML private TextField pharmPSCTxt;
       @FXML private TextField pharmCityTxt;
-
+      @FXML Button removePharmButton;
+      @FXML Button addPharmButton;
+      @FXML Button editPharmButton;
 
       @Override
       public void initialize() {
             initializePharmTable();
             initializeInventoryTable();
 
-            updateStockButtons();
 
 
             this.selectedEntryProperty().addListener((obs, oldMed, newMed) -> pharmSelectionChanged());
             inventoryTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> updateStockButtons());
 
             updateInventoryCountLabel();
+            updateButtons();
             loadDatabaseData();
 
       }
@@ -71,18 +73,70 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             float selectedStockDose;
 
             if (inventoryTable.getSelectionModel().getSelectedItem() == null) {
-                  deleteStockEntryButton.setDisable(true);
-                  deleteStockEntryButton.setText("VYMAZAT POLOŽKU");
+                  removeInventoryEntryButton.setDisable(true);
+                  removeInventoryEntryButton.setText("VYMAZAT POLOŽKU");
                   editStockCountButton.setDisable(true);
             } else {
                   Medication medicationById = findMedicationById(inventoryTable.getSelectionModel().getSelectedItem().getId());
                   assert medicationById != null;
                   selectedStockName = medicationById.getName();
                   selectedStockDose = medicationById.getDoseMgs();
-                  deleteStockEntryButton.setDisable(false);
-                  deleteStockEntryButton.setText("VYMAZAT POLOŽKU" + ' ' + selectedStockName + ' ' + selectedStockDose + "mg");
+                  removeInventoryEntryButton.setDisable(false);
+                  removeInventoryEntryButton.setText("VYMAZAT POLOŽKU" + ' ' + selectedStockName + ' ' + selectedStockDose + "mg");
                   editStockCountButton.setDisable(false);
             }
+      }
+
+      private void updatePharmButtons()
+      {
+            List<Button> pharmButtons;
+            pharmButtons = List.of(addPharmButton,removePharmButton,editPharmButton);
+
+            if(getMainTableSelectedEntry()==null)
+            {
+
+                  for(Button b:pharmButtons) { b.setDisable(true);}
+            }
+            else
+            {
+                  for(Button b:pharmButtons) { b.setDisable(false);}
+            }
+
+
+      }
+      private void updateButtons()
+      {
+            List<Button> pharmButtons = List.of(addPharmButton,removePharmButton,editPharmButton);
+            List<Button> inventoryButtons = List.of(removeInventoryEntryButton,editStockCountButton);
+
+            List<Button> allButtons = new ArrayList<>(pharmButtons);
+            allButtons.addAll(inventoryButtons);
+
+
+
+            if(getMainTableSelectedEntry()==null)
+            {
+
+                  for(Button b:allButtons) { b.setDisable(true);}
+            }
+            else if(getInventoryTableSelectedEntry()==null)
+            {
+                  removeInventoryEntryButton.setText("VYMAZAT POLOŽKU");
+                  for(Button b:pharmButtons) { b.setDisable(false);}
+                  for(Button b:inventoryButtons) { b.setDisable(true);}
+            }
+            else
+            {
+                  for(Button b:pharmButtons) { b.setDisable(false);}
+                  for(Button b:inventoryButtons) { b.setDisable(false);}
+
+                  Medication medicationById = findMedicationById(inventoryTable.getSelectionModel().getSelectedItem().getId());
+                  String selectedStockName = medicationById.getName();
+                  String selectedStockDose = medicationById.getId();
+                  assert medicationById != null;
+                  removeInventoryEntryButton.setText("VYMAZAT POLOŽKU" + ' ' + selectedStockName + ' ' + selectedStockDose + "mg");
+            }
+
 
       }
 
@@ -163,11 +217,8 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             if (selectedPharmacy != null) {
                   LoggingService.log("NAČÍTÁM SKLAD PRO LÉKÁRNU - " + selectedPharmacy.getName());
                   fillInventoryTable(selectedPharmacy.getInventory());
-
-                  deleteStockEntryButton.setDisable(false);
-                  editStockCountButton.setDisable(false);
             }
-            updateStockButtons();
+            updateButtons();
 
       }
 
@@ -236,7 +287,6 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
                   colStreetName.getStyleClass().setAll("");
                   colName.getStyleClass().setAll("highlightedColumn");
                   txtSearch.setPromptText("např. Adamova lékárna");
-
             }
 
             if (!txtSearch.getText().isEmpty()) {
@@ -254,7 +304,6 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
                   entriesCountLabel.getStyleClass().setAll("okay_label");
                   entriesCountLabel.setText("NALEZENO" + ' ' + Integer.toString(pharmaciesTable.getItems().size()) + ' ' + "ZÁPISŮ");
             }
-
       }
 
       @Override
@@ -302,6 +351,13 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
                   pharmaciesTable.scrollTo(itemCount - 1);
                   pharmaciesTable.getSelectionModel().select(itemCount - 1);
             }
+            clearPharmTextFields();
+      }
+      private void clearPharmTextFields()
+      {
+            List<TextField> pharmFields;
+            pharmFields = List.of(pharmNameTxt, pharmStreetTxt, pharmStreetNumberTxt, pharmPSCTxt, pharmCityTxt);
+            pharmFields.forEach(TextField::clear);
       }
 
       @FXML private void editPharmacy()
@@ -314,6 +370,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             String streetNumber = pharmStreetNumberTxt.getText();
             String PSC = pharmPSCTxt.getText();
             String city = pharmCityTxt.getText();
+
 
             //fuj
             if(!name.isEmpty())
@@ -340,7 +397,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             pharmaciesTable.scrollTo(index);
             pharmaciesTable.getSelectionModel().select(index);
             AppData.save();
-
+            clearPharmTextFields();
       }
 
 

@@ -9,7 +9,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Separator?>
 <VBox alignment="TOP_CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
-      fx:controller="cz.mendelu.projektjava_xkuba2.controllers.MedicationsController"
+      fx:controller="cz.mendelu.projektjava_xkuba2.ui_controllers.MedicationsController"
 
       stylesheets="@style.css">
     <padding>

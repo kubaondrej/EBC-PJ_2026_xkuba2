@@ -1,8 +1,7 @@
-package cz.mendelu.projektjava_xkuba2.controllers;
+package cz.mendelu.projektjava_xkuba2.ui_controllers;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import java.util.List;
 
 public abstract class TableController<T> {
 

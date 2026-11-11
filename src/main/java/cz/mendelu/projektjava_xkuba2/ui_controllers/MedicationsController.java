@@ -1,4 +1,4 @@
-package cz.mendelu.projektjava_xkuba2.controllers;
+package cz.mendelu.projektjava_xkuba2.ui_controllers;
 import cz.mendelu.projektjava_xkuba2.service.*;
 import cz.mendelu.projektjava_xkuba2.model.*;
 import javafx.event.ActionEvent;

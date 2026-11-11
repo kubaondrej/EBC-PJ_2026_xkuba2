@@ -1,17 +1,15 @@
-package cz.mendelu.projektjava_xkuba2.controllers;
+package cz.mendelu.projektjava_xkuba2.ui_controllers;
 
-import cz.mendelu.projektjava_xkuba2.model.Medication;
 import cz.mendelu.projektjava_xkuba2.model.Pharmacy;
 import cz.mendelu.projektjava_xkuba2.model.StockItem;
 import cz.mendelu.projektjava_xkuba2.service.AppData;
 import cz.mendelu.projektjava_xkuba2.service.LoggingService;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 
 public class PharmaciesController {
@@ -74,7 +72,14 @@ public class PharmaciesController {
 
     @FXML private void printTableHeightDifference()
     {
-        LoggingService.log("UI DEBUG INFO", Double.toString(pharmTableController.getTablesHeightDifference()));
+        LoggingService.log("UI", "ROZDILY ROZMERU TABULEK" + Double.toString(pharmTableController.getTablesHeightDifference()));
+    }
+    @FXML private void printSceneDimensions()
+    {
+        Scene scene = invCountSpinner.getScene();
+        Stage stage = (Stage) scene.getWindow();
+        LoggingService.log("UI", "vyskaXsirka okna" + scene.getHeight() + "x" + scene.getWidth());
+
     }
 
     @FXML private void backToMenu(ActionEvent event)

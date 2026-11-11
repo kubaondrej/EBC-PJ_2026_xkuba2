@@ -47,13 +47,6 @@
     "amount" : 1
   } ]
 }, {
-  "name" : "Omnia Hvězda",
-  "streetName" : "Plotní",
-  "streetNumber" : "41/19",
-  "postcode" : "625 00",
-  "city" : "Brno",
-  "inventory" : [ ]
-}, {
   "name" : "Centrum Měnínské brány",
   "streetName" : "Štefánikova",
   "streetNumber" : "296/13",
@@ -68,12 +61,15 @@
   "city" : "Brno",
   "inventory" : [ ]
 }, {
-  "name" : "Apatyka Něco",
-  "streetName" : "Dukelská třída",
-  "streetNumber" : "233/24",
-  "postcode" : "666666",
-  "city" : "Brno",
-  "inventory" : [ ]
+  "name" : "teeest",
+  "streetName" : "6",
+  "streetNumber" : "6",
+  "postcode" : "6",
+  "city" : "6",
+  "inventory" : [ {
+    "id" : "1a2b3c4d-5678-90ab-cdef-666666666666",
+    "amount" : 10
+  } ]
 }, {
   "name" : "Vita Fontána",
   "streetName" : "Milady Horákové",
@@ -103,7 +99,7 @@
   "city" : "Brno",
   "inventory" : [ {
     "id" : "6f7a8b9c-0123-45ab-cdef-404040404040",
-    "amount" : 1
+    "amount" : 4
   } ]
 }, {
   "name" : "Medica Zlaté jablko",
@@ -327,14 +323,10 @@
   "streetNumber" : "85/25",
   "postcode" : "602 00",
   "city" : "Brno",
-  "inventory" : [ ]
-}, {
-  "name" : "Medica Zlaté jablko",
-  "streetName" : "Táborská",
-  "streetNumber" : "147/28",
-  "postcode" : "618 00",
-  "city" : "Brno",
-  "inventory" : [ ]
+  "inventory" : [ {
+    "id" : "1a2b3c4d-5678-90ab-cdef-222222222222",
+    "amount" : 4
+  } ]
 }, {
   "name" : "Apatyka Ondřej",
   "streetName" : "Oderská",
@@ -343,13 +335,13 @@
   "city" : "Brno",
   "inventory" : [ {
     "id" : "5e6f7a8b-9012-34ab-cdef-393939393939",
-    "amount" : 6
+    "amount" : 10
   } ]
 }, {
-  "name" : "Jonášovo lékovinové doupě",
+  "name" : "Addd",
   "streetName" : "Jugoslávská",
   "streetNumber" : "768/9",
   "postcode" : "613 00",
-  "city" : "Brno",
+  "city" : "w",
   "inventory" : [ ]
 } ]

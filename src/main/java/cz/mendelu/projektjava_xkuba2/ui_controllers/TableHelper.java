@@ -1,11 +1,9 @@
-package cz.mendelu.projektjava_xkuba2.controllers;
+package cz.mendelu.projektjava_xkuba2.ui_controllers;
 
-import cz.mendelu.projektjava_xkuba2.model.Medication;
 import cz.mendelu.projektjava_xkuba2.service.LoggingService;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableView;
 
-import java.lang.reflect.Array;
 import java.util.List;
 
 public final class TableHelper {

@@ -11,7 +11,7 @@
 
 <VBox alignment="TOP_CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="cz.mendelu.projektjava_xkuba2.controllers.MedicationsTableController">
+      fx:controller="cz.mendelu.projektjava_xkuba2.ui_controllers.MedicationsTableController">
 
     <HBox alignment="CENTER" spacing="15.0">
         <Label text="VYHLEDAT POMOCÍ ÚČINNÉ SLOŽKY:" styleClass="blue_label"/>

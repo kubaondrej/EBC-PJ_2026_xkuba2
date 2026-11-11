@@ -1,7 +1,6 @@
-package cz.mendelu.projektjava_xkuba2.controllers;
+package cz.mendelu.projektjava_xkuba2.ui_controllers;
 
 import cz.mendelu.projektjava_xkuba2.model.Medication;
-import cz.mendelu.projektjava_xkuba2.model.StockItem;
 import cz.mendelu.projektjava_xkuba2.service.AppData;
 import cz.mendelu.projektjava_xkuba2.service.LoggingService;
 import javafx.beans.property.ReadOnlyObjectProperty;

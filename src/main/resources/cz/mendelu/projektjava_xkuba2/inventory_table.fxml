@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <VBox alignment="TOP_CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="cz.mendelu.projektjava_xkuba2.controllers.PharmaciesTableController">
+      fx:controller="cz.mendelu.projektjava_xkuba2.ui_controllers.PharmaciesTableController">
         <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
             <TableView fx:id="inventoryTable" VBox.vgrow="ALWAYS" minHeight="200">
                 <columnResizePolicy>

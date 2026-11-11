@@ -1,4 +1,4 @@
-package cz.mendelu.projektjava_xkuba2.controllers;
+package cz.mendelu.projektjava_xkuba2.ui_controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +21,8 @@ public final class SceneSwitcher {
     private static final int menuWIDTH=500;
     private static final int menuHEIGHT=300;
 
+
+
     /**
      * @param event        událost vyvolaná tlačítkem (slouží k nalezení okna)
      * @param fxmlFileName název FXML souboru ve stejném balíku v resources
@@ -39,6 +41,7 @@ public final class SceneSwitcher {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root, WIDTH, HEIGHT));
             stage.show();
+            stage.getHeight();
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("Chyba: Nepodařilo se načíst soubor " + fxmlFileName);
@@ -51,6 +54,14 @@ public final class SceneSwitcher {
 
     public static int getMenuHEIGHT() {
         return menuHEIGHT;
+    }
+
+    public static int getWIDTH() {
+        return WIDTH;
+    }
+
+    public static int getHEIGHT() {
+        return HEIGHT;
     }
 
     public static void switchToMenu(ActionEvent event)
