@@ -12,38 +12,28 @@ import javafx.scene.control.Alert.AlertType;
 public class MedicationsController {
 
 //LEKY
-    @FXML
-    private MedicationsTableController medTableController;
-    @FXML
-    private Button backToMenuButton;
+    @FXML private MedicationsTableController medTableController;
+    @FXML private Button backToMenuButton;
 
 
     //input boxy pro pridani leku
-    @FXML
-    private TextField medTxtName;
-    @FXML
-    private TextField medTxtActiveIngredient;
-    @FXML
-    private TextField medTxtDosage;
-    @FXML
-    private TextField medTxtPackagesPerPrescription;
-    @FXML
-    private Label lblMedInfo;
+    @FXML private TextField medTxtName;
+    @FXML private TextField medTxtActiveIngredient;
+    @FXML private TextField medTxtDosage;
+    @FXML private TextField medTxtPackagesPerPrescription;
+    @FXML private Label lblMedInfo;
 
     //checkbox pro vlastnost na predpis
-    @FXML
-    private CheckBox isPrescriptionOnlyChbx;
+    @FXML private CheckBox isPrescriptionOnlyChbx;
 
 
-    @FXML
-    public void initialize() {
+    @FXML public void initialize() {
         LoggingService.log("INICIALIZACE medication_scene.fxml");
         medTableController.selectedEntryProperty().addListener((obs, oldMed, newMed) -> showMedicationInfo());
 
     }
 
-    @FXML
-    private void addMedicationToDatabase()
+    @FXML private void addMedicationToDatabase()
     {
         try {
             Medication medToAdd;
@@ -72,8 +62,7 @@ public class MedicationsController {
         medTxtActiveIngredient.setText("");
         medTxtDosage.setText("");
     }
-    @FXML
-    private void removeMedicationFromDatabase()
+    @FXML private void removeMedicationFromDatabase()
     {
         Medication selected = medTableController.getMainTableSelectedEntry();
         if (selected == null) {
@@ -85,8 +74,7 @@ public class MedicationsController {
         lblMedInfo.setText("-");
     }
 
-    @FXML
-    private void prescriptionCheckboxAction()
+    @FXML private void prescriptionCheckboxAction()
     {
         LoggingService.log("CHECKBOX STATE:" + isPrescriptionOnlyChbx.isSelected());
         if(isPrescriptionOnlyChbx.isSelected())
@@ -100,8 +88,7 @@ public class MedicationsController {
         }
     }
 
-    @FXML
-    private void showMedicationInfo()
+    @FXML private void showMedicationInfo()
     {
         Medication selected = medTableController.getMainTableSelectedEntry();
         if (selected == null) {
@@ -112,28 +99,17 @@ public class MedicationsController {
         lblMedInfo.setText(selected.toString());
     }
 
-    @FXML
-    private void backToMenu(ActionEvent event)
+    @FXML private void backToMenu(ActionEvent event)
     {
         SceneSwitcher.switchToMenu(event);
     }
 
-    private void showErrorMessage(String title, String message) {
+    private void showErrorMessage(String title, String message)
+    {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Chyba");
         alert.setHeaderText(title);
         alert.setContentText(message);
-
         alert.showAndWait();
     }
-
-
-
-
-
-
-
-
-
-
 }

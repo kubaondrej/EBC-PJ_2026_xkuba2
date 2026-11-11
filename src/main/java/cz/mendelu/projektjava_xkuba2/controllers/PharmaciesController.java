@@ -21,8 +21,7 @@ public class PharmaciesController {
 
 
     @FXML private Spinner<Integer> invCountSpinner;
-    @FXML
-    public void initialize()
+    @FXML public void initialize()
     {
         LoggingService.log("INICIALIZACE pharmacies_scene.fxml");
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
@@ -78,8 +77,7 @@ public class PharmaciesController {
         LoggingService.log("UI DEBUG INFO", Double.toString(pharmTableController.getTablesHeightDifference()));
     }
 
-    @FXML
-    private void backToMenu(ActionEvent event)
+    @FXML private void backToMenu(ActionEvent event)
     {
         SceneSwitcher.switchToMenu(event);
     }

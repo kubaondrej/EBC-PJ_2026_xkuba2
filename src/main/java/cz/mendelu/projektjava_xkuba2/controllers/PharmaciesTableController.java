@@ -32,8 +32,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
       @FXML private TableColumn<StockItem, String> colStockDoseMgs;
       @FXML private TableColumn<StockItem, String> colStockCount;
 
-      @FXML
-      public Label inventoryTableEntriesCountLabel;
+      @FXML public Label inventoryTableEntriesCountLabel;
 
       //sprava položek skladu
       @FXML private Button deleteStockEntryButton;
@@ -125,8 +124,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             return null;
       }
 
-      @FXML
-      public void editStockCount() {
+      @FXML public void editStockCount() {
             StockItem target = inventoryTable.getSelectionModel().getSelectedItem();
             if (target != null) {
                   target.setAmmount(invCountEditSpinner.getValue());
@@ -136,8 +134,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             fillInventoryTable();
       }
 
-      @FXML
-      public void removeStockItem() {
+      @FXML public void removeStockItem() {
             if (inventoryTable.getSelectionModel().getSelectedItem() != null) {
                   getMainTableSelectedEntry().removeStockFromInventory(inventoryTable.getSelectionModel().getSelectedItem());
             }
@@ -227,8 +224,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             updateMainTableCountLabel();
       }
 
-      @FXML
-      public void pharmSearchAttributeChbxChanged() {
+      @FXML public void pharmSearchAttributeChbxChanged() {
             //VYHLEDAVAME POMOCI NAZVU ULICE
             if (searchByAddressChbx.isSelected()) {
                   colStreetName.getStyleClass().setAll("highlightedColumn");

@@ -9,8 +9,7 @@ public abstract class TableController<T> {
     @FXML private TableView<T> table;
 
     //vyhledavani
-    @FXML
-    public TextField txtSearch;
+    @FXML public TextField txtSearch;
     @FXML public Label lblSearchAttribute;
     @FXML public Label entriesCountLabel;
 
@@ -25,8 +24,7 @@ public abstract class TableController<T> {
         return table.getSelectionModel().selectedItemProperty();
     }
     public abstract void updateMainTableCountLabel();
-    @FXML
-    public void resetSearchFilter()
+    @FXML public void resetSearchFilter()
     {
         txtSearch.setText("");
         loadDatabaseData();

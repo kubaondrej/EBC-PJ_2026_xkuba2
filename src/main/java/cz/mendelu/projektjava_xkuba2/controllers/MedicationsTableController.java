@@ -24,8 +24,7 @@ public class MedicationsTableController extends TableController<Medication> {
     @FXML private TableColumn<Medication, String> colMaxPackages;
 
     //vyhledavani pro leky
-    @FXML
-    private CheckBox searchByActiveIngredientChbx;
+    @FXML private CheckBox searchByActiveIngredientChbx;
 
     @Override
     public void initialize()

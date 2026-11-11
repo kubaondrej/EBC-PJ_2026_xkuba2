@@ -7,23 +7,19 @@ import javafx.application.Platform;
 
 public class MenuController {
 
-    @FXML
-    private void switchToMedDatabase(ActionEvent event) {
+    @FXML private void switchToMedDatabase(ActionEvent event) {
         SceneSwitcher.switchTo(event, "medications_scene.fxml");
     }
 
-    @FXML
-    private void SwitchToPharmDatabase(ActionEvent event) {
+    @FXML private void SwitchToPharmDatabase(ActionEvent event) {
         SceneSwitcher.switchTo(event, "pharmacies_scene.fxml");
     }
 
-    @FXML
-    private void SwitchToStatistics(ActionEvent event) {
+    @FXML private void SwitchToStatistics(ActionEvent event) {
         SceneSwitcher.switchTo(event, "statistics_scene.fxml", 450,300);
     }
 
-    @FXML
-    private void quit()
+    @FXML private void quit()
     {
         AppData.save();
         //JAKY JE ROZDIL MEZI PLATFORM/SYSTEM EXIT? TODO: OBJASNIT
