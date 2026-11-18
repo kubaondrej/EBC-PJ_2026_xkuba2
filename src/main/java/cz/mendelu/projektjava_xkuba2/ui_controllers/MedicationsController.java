@@ -64,11 +64,23 @@ public class MedicationsController {
     }
     @FXML private void removeMedicationFromDatabase()
     {
-        Medication selected = medTableController.getMainTableSelectedEntry();
-        if (selected == null) {
+        Medication targetMedication = medTableController.getMainTableSelectedEntry();
+        if (targetMedication == null) {
             return;
         }
-        AppData.getMedications().removeIf(m -> m.getId().equals(selected.getId()));
+        //AppData.getMedications().removeIf(m -> m.getId().equals(targetMedication.getId()));
+
+        for(Pharmacy p: AppData.getPharmacies())
+        {
+            for(StockItem s: p.getInventory())
+            {
+                if(s.getId().equals(targetMedication.getId()))
+                {
+                    p.removeStockFromInventory(s);
+                }
+            }
+        }
+
         AppData.save();
         medTableController.loadDatabaseData();
         lblMedInfo.setText("-");

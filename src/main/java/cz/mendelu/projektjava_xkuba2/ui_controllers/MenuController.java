@@ -1,11 +1,19 @@
 package cz.mendelu.projektjava_xkuba2.ui_controllers;
 
 import cz.mendelu.projektjava_xkuba2.service.AppData;
+import cz.mendelu.projektjava_xkuba2.service.LoggingService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.application.Platform;
 
 public class MenuController {
+
+    @FXML private void initialize()
+    {
+        LoggingService.log("LOADED", Integer.toString(AppData.getPharmacies().size()) + ' ' + "LÉKÁREN");
+        LoggingService.log("LOADED", Integer.toString(AppData.getMedications().size()) + ' ' + "LÉKŮ");
+
+    }
 
     @FXML private void switchToMedDatabase(ActionEvent event) {
         SceneSwitcher.switchTo(event, "medications_scene.fxml");

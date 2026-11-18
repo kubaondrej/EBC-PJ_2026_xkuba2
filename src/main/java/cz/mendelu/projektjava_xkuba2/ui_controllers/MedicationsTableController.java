@@ -102,6 +102,14 @@ public class MedicationsTableController extends TableController<Medication> {
             entriesCountLabel.setText("NALEZENO" + ' ' + Integer.toString(medicationsTable.getItems().size()) + ' ' + "ZÁPISŮ");
         }
     }
+//    private void clearPharmTextFields()
+//    {
+//        List<TextField> pharmFields;
+//        pharmFields = List.of(pharmNameTxt, pharmStreetTxt, pharmStreetNumberTxt, pharmPSCTxt, pharmCityTxt);
+//        pharmFields.forEach(TextField::clear);
+//    }
+
+
     public void searchMedication()
     {
         if(!txtSearch.getText().isEmpty()) {

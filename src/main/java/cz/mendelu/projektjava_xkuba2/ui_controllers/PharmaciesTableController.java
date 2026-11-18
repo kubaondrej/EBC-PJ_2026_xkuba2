@@ -330,6 +330,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
                   AppData.save();
                   fillInventoryTable(Collections.emptyList());
                   loadDatabaseData();
+                  resetSearchFilter();
             }
       }
       @FXML private void addPharmacy()
@@ -350,6 +351,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             {
                   pharmaciesTable.scrollTo(itemCount - 1);
                   pharmaciesTable.getSelectionModel().select(itemCount - 1);
+                  resetSearchFilter();
             }
             clearPharmTextFields();
       }
@@ -397,6 +399,7 @@ public class PharmaciesTableController extends TableController<Pharmacy> {
             pharmaciesTable.scrollTo(index);
             pharmaciesTable.getSelectionModel().select(index);
             AppData.save();
+            resetSearchFilter();
             clearPharmTextFields();
       }
 

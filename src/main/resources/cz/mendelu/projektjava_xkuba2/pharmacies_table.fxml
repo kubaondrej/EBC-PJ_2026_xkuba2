@@ -91,7 +91,7 @@
 
                 <Button fx:id="editStockCountButton" text="UPRAVIT POČET" onAction="#editStockCount" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
                 <VBox spacing="2">
-                    <Label text="Počet:"/>
+                    <Label text="Upravit počet na:"/>
                     <Spinner fx:id="invCountEditSpinner" editable="true" minWidth="20" maxWidth="Infinity"/>
                 </VBox>
             </VBox>
