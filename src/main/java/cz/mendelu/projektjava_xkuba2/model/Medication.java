@@ -14,15 +14,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 })
 public abstract class Medication {
     private String id = UUID.randomUUID().toString();
-    String name;
-    String activeIngredient;
-    float doseMgs;
+    private String name;
+    private String activeIngredient;
+    private float doseMgs;
 
+    /**
+     * Konstruktor s nastavením hodnot při vytváření položky medikace
+     * @param name - Název medikace
+     * @param activeIngredient - Nazev aktivní složky
+     * @param doseMgs - Obsah aktivní složky v mg
+     * UUID se nám vytvoří při startu
+     */
     public Medication(String name, String activeIngredient, float doseMgs) {
         this.name = name;
         this.activeIngredient = activeIngredient;
         this.doseMgs = doseMgs;
     }
+    /**
+    * Konstruktor pro Jackson
+    */
     public Medication(){}
 
     public void setId(String id) {
@@ -33,13 +43,13 @@ public abstract class Medication {
         this.name = name;
     }
 
-    public void setActiveIngredient(String activeIngredient) {
-        this.activeIngredient = activeIngredient;
-    }
-
-    public void setDoseMgs(float doseMgs) {
-        this.doseMgs = doseMgs;
-    }
+//    public void setActiveIngredient(String activeIngredient) {
+//        this.activeIngredient = activeIngredient;
+//    }
+//
+//    public void setDoseMgs(float doseMgs) {
+//        this.doseMgs = doseMgs;
+//    }
 
     public String getId() {
         return id;
@@ -53,8 +63,6 @@ public abstract class Medication {
         return activeIngredient;
     }
 
-
-
     public float getDoseMgs() {
         return doseMgs;
     }
@@ -63,7 +71,7 @@ public abstract class Medication {
     @JsonIgnore
     public abstract boolean isPrescriptionRequired();
     @JsonIgnore
-    public int getMaxPackages() { return 0; }
+    public int getMaxPackages() {return 0;};
     @Override
     public String toString() { return "Lék s názvem" + ' ' +name + ','+' ' + "s aktivní látkou" + ' ' + activeIngredient + ' ' + "v obsahu" + ' ' +doseMgs + "mg." + ' '+ getDispensingInfo() + '.';}
 }

@@ -30,7 +30,6 @@ public class MedicationsController {
     @FXML public void initialize() {
         LoggingService.log("INICIALIZACE medication_scene.fxml");
         medTableController.selectedEntryProperty().addListener((obs, oldMed, newMed) -> showMedicationInfo());
-
     }
 
     @FXML private void addMedicationToDatabase()

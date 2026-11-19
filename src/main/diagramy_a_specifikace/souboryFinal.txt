@@ -1,0 +1,21 @@
+                                                        |PŘISTUPNOST| KOMENTÁŘE | ČITELNOST |           |
+1   model/Medication.java                               |     x     |     x     |     x     |           |
+2   model/OverTheCounterMedication.java                 |     x     |     x     |     x     |           |
+3   model/Pharmacy.java                                 |           |           |           |           |
+4   model/PrescriptionMedication.java                   |           |           |           |           |
+5   model/StockItem.java                                |           |           |           |           |
+6   service/AppData.java                                |           |           |           |           |
+7   service/LoggingService.java                         |           |           |           |           |
+8   service/StatisticsService.java                      |           |           |           |           |
+9   storage/JsonStorage.java                            |           |           |           |           |
+10  ui_controllers/HelloApplication.java                |           |           |           |           |
+11  ui_controllers/Launcher.java                        |           |           |           |           |
+12  ui_controllers/MedicationsController.java           |           |           |           |           |
+13  ui_controllers/MedicationsTableController.java      |           |           |           |           |
+14  ui_controllers/MenuController.java                  |           |           |           |           |
+15  ui_controllers/PharmaciesController.java            |           |           |           |           |
+16  ui_controllers/PharmaciesTableController.java       |           |           |           |           |
+17  ui_controllers/SceneSwitcher.java                   |           |           |           |           |
+18  ui_controllers/StatisticsController.java            |           |           |           |           |
+19  ui_controllers/TableController.java                 |           |           |           |           |
+20  ui_controllers/TableHelper.java                     |           |           |           |           |
